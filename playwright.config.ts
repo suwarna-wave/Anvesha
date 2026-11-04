@@ -1,18 +1,19 @@
 import { defineConfig } from '@playwright/test';
+const previewPort = 4322;
 export default defineConfig({
   testDir: './tests',
   testMatch: '**/*.spec.ts',
   workers: 2,
   use: {
-    baseURL: 'http://127.0.0.1:4321',
+    baseURL: `http://127.0.0.1:${previewPort}`,
     launchOptions: {
       executablePath: process.env.CHROME_PATH || undefined,
       args: ['--no-sandbox'],
     },
   },
   webServer: {
-    command: 'npm run preview -- --port 4321 --ignore-lock',
-    url: 'http://127.0.0.1:4321',
-    reuseExistingServer: !process.env.CI,
+    command: `npm run preview -- --port ${previewPort} --ignore-lock`,
+    url: `http://127.0.0.1:${previewPort}`,
+    reuseExistingServer: false,
   },
 });

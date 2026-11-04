@@ -7,11 +7,14 @@ A lightweight editorial website for the **Anvesha**, a Nepal-based initiative. B
 Use **Node 22.23.4 or newer** and npm 9.6.5 or newer. `.nvmrc` pins the tested Node version.
 
 ```sh
-nvm use                  # optional, if you use nvm
+nvm install              # install the version pinned in .nvmrc
+nvm use                  # select it in this terminal
 npm ci
 cp .env.example .env
 npm run dev
 ```
+
+If you use a different Node version manager, select Node 22.23.4 or newer before running these commands. Existing terminals keep their selected Node version until you run `nvm use` or open a new terminal.
 
 Open `http://127.0.0.1:4321`. No service credentials are needed. On npm versions that restrict dependency scripts, the committed `allowScripts` entry permits esbuild’s platform setup. Never approve unfamiliar scripts without inspection.
 
@@ -27,7 +30,7 @@ npm run preview          # Preview the production build
 npm run test:browser     # Responsive, axe accessibility and interaction tests
 ```
 
-Browser tests use Playwright’s Chromium by default. Run `npx playwright install chromium` once, or set `CHROME_PATH` to an installed Chrome executable. The test runner starts the production preview automatically; build first. Generated screenshots and reports are ignored by Git.
+Browser tests use Playwright’s Chromium by default. Run `npx playwright install chromium` once, or set `CHROME_PATH` to an installed Chrome executable. The test runner starts its own production preview on port 4322; build first. Keep that port free. It does not reuse your development server, so development-toolbar elements cannot affect the production checks. Generated screenshots and reports are ignored by Git.
 
 ## Structure and extension
 
@@ -97,3 +100,7 @@ English uses British spelling. Keep future translations in locale-specific conte
 ## Quality and launch status
 
 See [QA.md](QA.md) for measured results and limitations, [FACTS.md](FACTS.md) for the verification register and [LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md) for outstanding founder decisions. This repository is a functioning local website; public launch depends on verified contact information, domain, hosting and content/legal review.
+
+## Visual restraint
+
+Use typography, spacing, fine rules and standard lists for supporting content. The original pyramid illustration in `src/assets/commons-pyramid.svg` is reserved for the homepage hero and social preview; `npm run assets:og` keeps those in sync. Keep it static and lightly tinted. Avoid repeating the shape in headings, numbered lists, bullets or calls to action, and do not use its levels to imply status or impact.

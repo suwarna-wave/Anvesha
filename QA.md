@@ -53,3 +53,11 @@ The public name, wordmark, primary line and supporting copy were updated to Anve
 - Generated-site checks passed for 11 HTML pages and 332 local references.
 - Source and production-output scans found no previous public-name or old primary-tagline references. Desktop/mobile homepage screenshots and the regenerated social preview were visually reviewed.
 - Lighthouse figures above describe the initial build, before the rename; performance was not remeasured for this branding edit.
+
+## Current visual direction
+
+The homepage and social image share one original, simplified pyramid illustration. Supporting pages use plain numbers, conventional list bullets, fine rules and clear spacing. Decorative header, card, timeline and collaboration triangles have been removed, together with their unused component and styles. No dependencies or client scripts were added.
+
+Browser tests use their own production preview on port 4322 rather than a running development server. Keep that port free. The Lighthouse figures above remain initial-build observations, not measurements of subsequent visual revisions.
+
+Validation of the simplified design: production build, lint, formatting and Astro/TypeScript checks passed. All 11 browser checks passed, including five responsive widths, mobile/desktop accessibility scans, keyboard/no-JavaScript navigation and enlarged-text reflow. Generated-site checks passed for 11 pages and 332 local references. The desktop homepage was visually reviewed. No new Lighthouse measurement was taken.

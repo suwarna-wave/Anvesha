@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" fill="none" role="img" aria-label="An open geometric network connecting people, public policy and technology through shared foundations">
+  <path d="M250 62 62 340 250 440Z" fill="#e6eeeb" fill-opacity=".7"/>
+  <path d="M250 62 250 440 438 340Z" fill="#dce9e2" fill-opacity=".45"/>
+  <path d="M62 340 250 240 438 340 250 440Z" fill="#f8f9f5" fill-opacity=".55"/>
+  <g stroke="#0e726c" stroke-width=".8" opacity=".22">
+    <path d="M62 340 250 240 438 340M250 62V240" stroke-dasharray="3 5"/>
+    <path d="M197.4 139.8 250 167.8 302.6 139.8M161.6 192.7 250 239.7 338.4 192.7M125.9 245.5 250 311.5 374.1 245.5M90.2 298.3 250 383.3 409.8 298.3"/>
+  </g>
+  <g stroke="#0e726c" stroke-width="1.15" opacity=".7">
+    <path d="M250 62 62 340 250 440 438 340 250 62ZM250 62V440"/>
+    <path d="M125.9 245.5 250 311.5 374.1 245.5"/>
+  </g>
+  <g fill="#f8f9f5" stroke="#0e726c" stroke-width="1.2"><circle cx="250" cy="62" r="7"/><circle cx="62" cy="340" r="7"/><circle cx="438" cy="340" r="7"/></g>
+  <g fill="#d8a451"><circle cx="250" cy="62" r="3"/><circle cx="62" cy="340" r="3"/><circle cx="438" cy="340" r="3"/></g>
+  <g fill="#0e726c"><circle cx="250" cy="311.5" r="4"/></g>
+  <g fill="#102638" font-family="Inter Variable, Arial, sans-serif" font-size="9" font-weight="600" letter-spacing="1.6" text-anchor="middle"><text x="250" y="29">PEOPLE</text><text x="77" y="372">PUBLIC POLICY</text><text x="425" y="372">TECHNOLOGY</text></g>
+</svg>
