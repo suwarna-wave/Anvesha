@@ -24,8 +24,14 @@ for (const width of [320, 390, 768, 1280, 1440]) {
           () => document.documentElement.scrollWidth <= innerWidth,
         ),
       ).toBe(true);
-      if ([390, 1280].includes(width) && ['/about', '/contact', '/partnerships'].includes(route)) {
-        await page.screenshot({ path: `qa-artifacts/${route.slice(1)}-${width}.png`, fullPage: true });
+      if (
+        [390, 1280].includes(width) &&
+        ['/about', '/contact', '/partnerships'].includes(route)
+      ) {
+        await page.screenshot({
+          path: `qa-artifacts/${route.slice(1)}-${width}.png`,
+          fullPage: true,
+        });
       }
     }
     await page.goto('/');
@@ -35,16 +41,23 @@ for (const width of [320, 390, 768, 1280, 1440]) {
     });
   });
 }
-test('principal routes have no automated WCAG A/AA violations', async ({ page }) => {
+test('principal routes have no automated WCAG A/AA violations', async ({
+  page,
+}) => {
   for (const width of [390, 1280]) {
     await page.setViewportSize({ width, height: 900 });
     for (const route of routes) {
       await page.goto(route);
       const result = await new AxeBuilder({ page })
         .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
-        .options({ rules: { 'label-content-name-mismatch': { enabled: true } } })
+        .options({
+          rules: { 'label-content-name-mismatch': { enabled: true } },
+        })
         .analyze();
-      expect(result.violations, `${route} at ${width}px: ${JSON.stringify(result.violations)}`).toEqual([]);
+      expect(
+        result.violations,
+        `${route} at ${width}px: ${JSON.stringify(result.violations)}`,
+      ).toEqual([]);
     }
   }
 });

@@ -76,3 +76,7 @@ Update pillar descriptions in `src/content/pillars.ts` and shared editorial ques
 5. To unpublish, set `status: draft` and rebuild/deploy. Remove sensitive public assets separately; use the host’s cache purge where needed. Previous saved deployments may retain copies.
 
 Changing a filename changes its URL. Add an explicit host redirect for previously published URLs. Keep internal fixtures under `tests/`, never in production content folders. All public lists, routes, RSS and sitemap must use `src/lib/content.ts` so publication rules are consistent.
+
+## Brand copy
+
+Edit `src/content/brand.json` for Anvesha’s name, descriptor, primary headline, supporting eyebrow, mission and default description. Run `npm run assets:og` to regenerate both social-preview assets, then build and review the homepage at mobile and desktop widths. Review narrative pages and this brief alongside changes so the public voice stays consistent. A public-brand change does not establish a registered legal name or status.

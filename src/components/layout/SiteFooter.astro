@@ -13,7 +13,7 @@ import { navigation, organization } from '../../lib/organization';
       </span>
     </div>
     <div class="footer-links">
-      <p class="eyebrow">Explore CLTS</p>
+      <p class="eyebrow">Explore {organization.name}</p>
       {navigation.slice(0, 4).map(({ href, label }) => (
         <a href={href}>{label}</a>
       ))}

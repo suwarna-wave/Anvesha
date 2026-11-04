@@ -1,19 +1,19 @@
-# AGENTS.md — CLTS Website: Product, Design, Content & Engineering Brief
+# AGENTS.md — Anvesha Website: Product, Design, Content & Engineering Brief
 
-> **Read this entire file before changing the project.** This is the source of truth for an AI coding agent commissioned to build or improve the public website of the **Centre for Liberty, Technology and Society (CLTS)**, a Nepal-based, emerging nonprofit / civic-tech policy and research initiative.
+> **Read this entire file before changing the project.** This is the source of truth for an AI coding agent commissioned to build or improve the public website of **Anvesha**, a Nepal-based, emerging nonprofit / civic-tech policy and research initiative.
 >
 > **Your assignment is to deliver a working, polished, maintainable website—not merely a design concept, a few components, or an implementation plan.**
 >
-> **Name verification:** Use **Centre for Liberty, Technology and Society** and **CLTS** as the working brand. The founder previously typed “Libtery”; do not propagate that typo without confirmation. If legal registration documents prescribe a different spelling or formal name, use that verified legal name in legal contexts and obtain approval before changing the public brand.
+> **Name verification:** The founder has renamed the public brand to **Anvesha**. Use Anvesha consistently, without an acronym or expanded institutional name. The registered legal name and status remain unverified; use documentary evidence in legal contexts.
 
 ---
 
 ## 0. Mission and definition of success
 
-Build an **exceptionally credible, visually distinctive, calm, lightweight, inclusive, accessible, and useful** digital home for CLTS. A visitor should understand within five seconds:
+Build an **exceptionally credible, visually distinctive, calm, lightweight, inclusive, accessible, and useful** digital home for Anvesha. A visitor should understand within five seconds:
 
-1. **What CLTS stands for:** individual liberty, human dignity, responsible technological progress, evidence-led public policy, legal literacy, and an open, innovative society.
-2. **What CLTS does:** policy research and recommendations, public dialogues, capacity-building and digital skills training, policy hackathons, workshops, convenings, and cross-sector partnerships.
+1. **What Anvesha stands for:** individual liberty, human dignity, responsible technological progress, evidence-led public policy, legal literacy, and an open, innovative society.
+2. **What Anvesha does:** policy research and recommendations, public dialogues, capacity-building and digital skills training, policy hackathons, workshops, convenings, and cross-sector partnerships.
 3. **How to engage:** explore ideas, attend an event, collaborate, submit an inquiry, join a community, or discuss institutional/grant support.
 
 The site must feel **like a respected international think tank with the energy of a contemporary technology lab**, informed by Nepal, useful to regional and global audiences, and welcoming rather than ideological or partisan.
@@ -24,9 +24,9 @@ The site must feel **like a respected international think tank with the energy o
 
 - Never fabricate grant awards, legal registrations, Social Welfare Council affiliation, government approvals, public figures' endorsements, partners, sponsors, donors, research publications, impact statistics, board members, testimonials, event attendance, or past events.
 - Never quietly present aspirational programs as completed achievements. Distinguish **focus areas**, **planned initiatives**, **active work**, and **completed work**.
-- Never publish a working **Donate / Pay Now** button before CLTS has verified its eligibility, approval requirements, receiving account, compliance process, and payment provider.
-- Never imply CLTS is a government body, a regulator, a registered charity in a foreign jurisdiction, or the recipient of any form of tax-deductible gift without documentary evidence.
-- Never use fake logos, stock photos posed as CLTS activities, invented citations, or empty “impact numbers.”
+- Never publish a working **Donate / Pay Now** button before Anvesha has verified its eligibility, approval requirements, receiving account, compliance process, and payment provider.
+- Never imply Anvesha is a government body, a regulator, a registered charity in a foreign jurisdiction, or the recipient of any form of tax-deductible gift without documentary evidence.
+- Never use fake logos, stock photos posed as Anvesha activities, invented citations, or empty “impact numbers.”
 - Never create fake functionality: a nonworking newsletter box, a submit button without delivery, broken links, fake registration forms, or an empty CMS that only the developer understands.
 - Never overbuild: no unnecessary dashboard, accounts, 3D engine, heavy scroll-jacking, giant hero video, excessive libraries, or microservices.
 
@@ -36,8 +36,8 @@ The site must feel **like a respected international think tank with the energy o
 
 ### Working identity
 
-- **Name:** Centre for Liberty, Technology and Society
-- **Short name:** CLTS
+- **Name:** Anvesha
+- **Public brand:** Anvesha (no acronym)
 - **Base:** Nepal; designed to engage South Asia and the international technology-policy ecosystem
 - **Institutional model:** nonprofit policy / research / dialogue / training / civic innovation initiative. **Exact legal status is unverified until the founders provide documents.**
 - **Orientation:** rights-respecting, liberty-minded, evidence-led, open to constructive engagement across perspectives, committed to the rule of law and legitimate public interest.
@@ -45,15 +45,15 @@ The site must feel **like a respected international think tank with the energy o
 
 ### One-sentence explanation
 
-> CLTS brings research, dialogue and practical learning together to help people and institutions navigate emerging technologies while protecting liberty, strengthening public trust and working within the rule of law.
+> Anvesha brings research, dialogue and practical learning together to help people and institutions navigate emerging technologies while protecting liberty, strengthening public trust and working within the rule of law.
 
 ### Recommended brand line
 
-> **A freer, more capable digital society.**
+> **Inquiry for a better digital society.**
 
 ### Optional secondary line
 
-> **Ideas that protect freedom. Technology that serves people.**
+> **Research. Dialogue. Discovery.**
 
 Do not display all taglines at once. Pick one primary expression; use supporting copy to explain it.
 
@@ -67,11 +67,11 @@ Use a coherent taxonomy across navigation, homepage, programs, related articles,
 4. **Dialogue & Public Engagement** — public forums, multi-stakeholder discussions, policy roundtables, debates, technology-and-society events.
 5. **Civic Innovation & Hackathons** — policy hackathons, public-interest technology challenges, collaborative prototyping, interdisciplinary labs.
 
-These are **focus areas**, not proof that CLTS has already implemented all five. Admin/editor content must support `planned`, `active`, and `completed` states.
+These are **focus areas**, not proof that Anvesha has already implemented all five. Admin/editor content must support `planned`, `active`, and `completed` states.
 
 ### Intellectual character
 
-CLTS can value liberty without reducing every topic to a slogan. Treat liberty, safety, accountability, innovation, accessibility, legality, democratic participation, and evidence as subjects for serious, sometimes competing policy choices. Make space for informed debate. Avoid party-political branding and advocacy copy implying all legal questions have a simple answer.
+Anvesha can value liberty without reducing every topic to a slogan. Treat liberty, safety, accountability, innovation, accessibility, legality, democratic participation, and evidence as subjects for serious, sometimes competing policy choices. Make space for informed debate. Avoid party-political branding and advocacy copy implying all legal questions have a simple answer.
 
 ---
 
@@ -81,17 +81,17 @@ Every important visitor must have an obvious next step:
 
 | Visitor | Their question | Appropriate path / CTA |
 |---|---|---|
-| International foundation / grantmaker | Is CLTS credible, aligned, accountable and contactable? | **Partner with CLTS** → mission, program priorities, governance/transparency, partnership inquiry |
+| International foundation / grantmaker | Is Anvesha credible, aligned, accountable and contactable? | **Partner with Anvesha** → mission, program priorities, governance/transparency, partnership inquiry |
 | University / research institute | Can we commission, co-author or host research? | **Explore Research** → themes / publications → **Discuss Collaboration** |
 | Government or policymaker | Is the analysis balanced and useful? | **Insights & Policy** → publication detail / event → contact |
 | Technologist / startup / civic builder | Where can I contribute or learn? | **Programs & Events** → hackathons / workshops → registration or interest form |
 | Student / early-career professional | Can I join a program, volunteer or attend? | **Get Involved** → opportunities / newsletter |
-| Journalist / public reader | What does CLTS think about an issue? | **Insights** → clear article pages, author/date/sources, media contact |
+| Journalist / public reader | What does Anvesha think about an issue? | **Insights** → clear article pages, author/date/sources, media contact |
 | Potential institutional partner | What can we do together? | **Partnerships** → collaboration models and concise inquiry |
 
 ### Site-wide calls to action
 
-- **Primary institutional CTA:** `Partner with CLTS` (or `Explore Partnerships`).
+- **Primary institutional CTA:** `Partner with Anvesha` (or `Explore Partnerships`).
 - **Primary general-interest CTA:** `Explore Our Work`.
 - **Contextual CTAs:** `Read the Research`, `View Events`, `Join a Conversation`, `Propose a Collaboration`, `Get Updates`.
 - Use **one visually dominant CTA** per section, not three equally strong buttons.
@@ -151,7 +151,7 @@ Create an original, lightweight **“digital commons” motif**: an elegant SVG 
 
 Ideas for culturally grounded subtlety: geometric patterns inspired by Nepali architecture, layered landscape-like contours, or locally meaningful visual rhythm, reinterpreted abstractly. **Avoid turning the brand into a tourism website** or using sacred symbols decoratively without context.
 
-The wordmark should say `CLTS` cleanly; any icon/mark must work at favicon size and in monochrome. Until the organization approves a logo, treat the built icon as a **proposal**, not an official adopted logo.
+The wordmark should say `Anvesha` cleanly; any icon/mark must work at favicon size and in monochrome. Until the organization approves a logo, treat the built icon as a **proposal**, not an official adopted logo.
 
 ### Motion principles
 
@@ -162,9 +162,9 @@ The wordmark should say `CLTS` cleanly; any icon/mark must work at favicon size 
 
 ### Images and illustrations
 
-- Favor authentic founder-approved photos of real CLTS activities, Nepal civic-tech context, people collaborating, and documentation from events **with permission and consent**.
+- Favor authentic founder-approved photos of real Anvesha activities, Nepal civic-tech context, people collaborating, and documentation from events **with permission and consent**.
 - Where genuine photos do not exist, use original line-art, abstract geometry, typographic treatment, and a curated visual system.
-- Never use photos from unrelated events as if they depict CLTS's work. Any licensed third-party image should be clearly appropriate, accessible, and credited when required.
+- Never use photos from unrelated events as if they depict Anvesha's work. Any licensed third-party image should be clearly appropriate, accessible, and credited when required.
 - Responsive image sizes, modern formats, meaningful alt text, and sensible art direction are required.
 
 ---
@@ -173,7 +173,7 @@ The wordmark should say `CLTS` cleanly; any icon/mark must work at favicon size 
 
 Keep the top navigation lean. Suggested desktop navigation:
 
-`About` · `Our Work` · `Insights` · `Events` · `Get Involved` · **`Partner with CLTS`**
+`About` · `Our Work` · `Insights` · `Events` · `Get Involved` · **`Partner with Anvesha`**
 
 On mobile use an accessible, thoughtfully designed menu with visible focus, no trapped tab order, and enough touch target space.
 
@@ -210,17 +210,17 @@ The homepage is an editorial story with roughly **7–9 purposeful sections**. I
 
 ### 5.1 Navigation
 
-Minimal logo lockup, clear primary links, `Partner with CLTS` highlighted. Keyboard-accessible mobile menu. Optional announcement strip **only for real announcements**.
+Minimal logo lockup, clear primary links, `Partner with Anvesha` highlighted. Keyboard-accessible mobile menu. Optional announcement strip **only for real announcements**.
 
 ### 5.2 Hero: high clarity and a memorable visual
 
-**Eyebrow:** `Independent ideas. Responsible innovation.` (use only if institutionally accurate)
+**Eyebrow:** `Research. Dialogue. Discovery.`
 
-**Headline:** `A freer, more capable digital society.`
+**Headline:** `Inquiry for a better digital society.`
 
 **Subheading:** `We connect public policy research, practical technology learning and open dialogue to help society embrace innovation while protecting rights and the rule of law.`
 
-**CTAs:** `Explore Our Work` and `Partner with CLTS`.
+**CTAs:** `Explore Our Work` and `Partner with Anvesha`.
 
 **Visual:** original lightweight digital-commons motif, ideally alongside typography rather than covering it. At small widths the text is first, motif secondary.
 
@@ -228,11 +228,11 @@ Minimal logo lockup, clear primary links, `Partner with CLTS` highlighted. Keybo
 
 The above is approved **draft positioning copy**, not factual proof of any completed work.
 
-### 5.3 Why CLTS exists
+### 5.3 Why Anvesha exists
 
 Headline: `Technology changes what is possible. Society decides what is right.`
 
-In 2–3 brief sentences, explain how emerging technologies create opportunity **and** new questions about rights, access, trust, skills and legal safeguards. CLTS links policy insight with human capability and responsible action.
+In 2–3 brief sentences, explain how emerging technologies create opportunity **and** new questions about rights, access, trust, skills and legal safeguards. Anvesha links policy insight with human capability and responsible action.
 
 ### 5.4 What we focus on
 
@@ -240,7 +240,7 @@ Introduce the five pillars in a high-quality editorial grid/list with concise de
 
 ### 5.5 From ideas to action
 
-Visually describe the practical CLTS cycle, e.g. **Research → Convene → Build Capacity → Experiment → Learn & Share**. Include concrete types of work (policy dialogues, training, hackathons), and make clear which are current and which are intended programs.
+Visually describe the practical Anvesha cycle, e.g. **Research → Convene → Build Capacity → Experiment → Learn & Share**. Include concrete types of work (policy dialogues, training, hackathons), and make clear which are current and which are intended programs.
 
 ### 5.6 Featured insights or research direction
 
@@ -272,11 +272,11 @@ One calm message and single meaningful action; if no configured newsletter integ
 
 ### 6.1 `/about` — earn trust without exaggeration
 
-Sections: concise mission, the problem CLTS addresses, values, approach (`research + dialogue + learning + experimentation`), intended beneficiaries, Nepal/global perspective, people/governance (only verified information), and one collaboration CTA.
+Sections: concise mission, the problem Anvesha addresses, values, approach (`research + dialogue + learning + experimentation`), intended beneficiaries, Nepal/global perspective, people/governance (only verified information), and one collaboration CTA.
 
 Distinguish clearly among:
 
-- **Mission** — what CLTS exists to advance.
+- **Mission** — what Anvesha exists to advance.
 - **Vision** — the future it hopes to contribute to.
 - **Principles** — liberty, evidence, openness, responsibility, inclusion, the rule of law.
 - **Activities** — work actually underway or planned (accurately labeled).
@@ -296,7 +296,7 @@ Use five clearly defined pillars, each with:
 
 Possible thematic subtopics to support tagging (do not pretend each is a funded project): AI and algorithmic governance; privacy and data protection; digital public infrastructure; cybersecurity awareness; digital inclusion; open internet; youth technology literacy; platform governance; innovation-friendly regulation; digital autonomy and civic trust.
 
-Avoid claiming CLTS provides formal legal advice, accredited certification, or regulated cybersecurity services unless verified.
+Avoid claiming Anvesha provides formal legal advice, accredited certification, or regulated cybersecurity services unless verified.
 
 ### 6.3 `/insights` and `/insights/[slug]` — editorial credibility
 
@@ -334,17 +334,17 @@ This is a strategic priority. Speak to international foundations and credible do
 
 Recommended sections:
 
-1. **Why CLTS** — mission fit, local context, global relevance, interdisciplinary approach.
+1. **Why Anvesha** — mission fit, local context, global relevance, interdisciplinary approach.
 2. **Areas for collaboration** — commissioned/independent research, dialogue series, digital capacity-building, civic-tech labs, research fellowships **if planned and feasible**, hackathons, co-hosted programs.
 3. **What collaboration can look like** — research partnership, institutional knowledge exchange, program sponsorship (subject to approvals), capacity-building partnership, grants/project support (subject to compliance).
-4. **How CLTS works** — proposed evidence standards, open dialogue, safeguards, monitoring and evaluation, safeguarding, privacy and financial accountability. Do not claim these policies are formally adopted if they are still drafts.
+4. **How Anvesha works** — proposed evidence standards, open dialogue, safeguards, monitoring and evaluation, safeguarding, privacy and financial accountability. Do not claim these policies are formally adopted if they are still drafts.
 5. **Institutional information / due diligence** — after verification, contact details, registration and relevant approvals, governance and leadership, project portfolio, actual reports, financial statements, relevant policies, downloadable institutional profile.
 6. **Inquiry form** — concise and reliable. Suggested fields: name, work email, organization, collaboration interest, message, optional timeline; consent statement. Explicit confirmation after successful delivery.
 7. **Practical next step** — `Start a Partnership Conversation`.
 
 When applicable, label the section `Partnership & Grant Conversations` rather than `Donate Now`. An NGO website can welcome **inquiries about grants** without making unverified representations that it can immediately accept international funds.
 
-**Compliance gate:** Nepal-related nonprofit registration, Social Welfare Council processes, project-level foreign assistance permissions, public fundraising permissions, tax treatment, and permitted banking/payment pathways must be reviewed against current law and actual CLTS documents before a donation/fund-transfer feature or explicit grant-eligibility promise goes live. The agent is not a lawyer. Document open questions and request founder/legal approval for these claims.
+**Compliance gate:** Nepal-related nonprofit registration, Social Welfare Council processes, project-level foreign assistance permissions, public fundraising permissions, tax treatment, and permitted banking/payment pathways must be reviewed against current law and actual Anvesha documents before a donation/fund-transfer feature or explicit grant-eligibility promise goes live. The agent is not a lawyer. Document open questions and request founder/legal approval for these claims.
 
 Suggested public phrasing: `Interested in supporting research, digital inclusion or public dialogue? We welcome conversations with foundations and institutional partners. Any funding arrangement is subject to applicable approvals and compliance requirements.`
 
@@ -383,7 +383,7 @@ Suggested public phrasing: `Interested in supporting research, digital inclusion
 
 **Short institutional description**
 
-> The Centre for Liberty, Technology and Society (CLTS) is a Nepal-based initiative working at the intersection of technological change, public policy and individual freedom. Through research, public dialogue, practical learning and collaborative innovation, CLTS aims to advance a digital future that is open, inclusive, lawful and accountable.
+> Anvesha is a Nepal-based initiative working at the intersection of technological change, public policy and individual freedom. Through research, public dialogue, practical learning and collaborative innovation, Anvesha aims to advance a digital future that is open, inclusive, lawful and accountable.
 
 **Why our work matters**
 
@@ -589,12 +589,12 @@ Optimize for slow connections and modest mobile phones common across South Asia.
 
 ## 11. Nepal-specific institutional and legal safeguards
 
-CLTS is intended to operate in Nepal. Legal and grant-eligibility claims are **founder/legal-review items**, not design flourishes.
+Anvesha is intended to operate in Nepal. Legal and grant-eligibility claims are **founder/legal-review items**, not design flourishes.
 
-### Before launch, verify with CLTS leadership / qualified local counsel
+### Before launch, verify with Anvesha leadership / qualified local counsel
 
-- Exact registered legal name (including whether `Centre for Liberty, Technology and Society` is the legal spelling).
-- Whether CLTS is formally registered, in registration, affiliated with the **Social Welfare Council**, or operating under another lawful structure.
+- Exact registered legal name (including whether `Anvesha` is the legal spelling).
+- Whether Anvesha is formally registered, in registration, affiliated with the **Social Welfare Council**, or operating under another lawful structure.
 - The actual rules applicable to its nonprofit status, approvals, public fundraising, external grant acceptance, project agreements, and permitted international payment flows.
 - Whether particular program descriptions, funding solicitations or foreign-partner language require approvals.
 - Any obligations to publish particular governance, financial, audit or activity documents.
@@ -609,7 +609,7 @@ CLTS is intended to operate in Nepal. Legal and grant-eligibility claims are **f
 - Accessibility: https://www.w3.org/WAI/standards-guidelines/wcag/
 - Web performance: https://web.dev/articles/vitals
 
-**Publication rule:** until legal status and fundraising permissions are established, the site may invite `partnership and funding conversations` but must not represent that CLTS is already authorized to solicit, collect or disburse donations or foreign grants. Do not add legal boilerplate claiming universal compliance.
+**Publication rule:** until legal status and fundraising permissions are established, the site may invite `partnership and funding conversations` but must not represent that Anvesha is already authorized to solicit, collect or disburse donations or foreign grants. Do not add legal boilerplate claiming universal compliance.
 
 ---
 
@@ -680,7 +680,7 @@ Support sustainable publishing with:
 ### Phase B — design system and foundation
 
 1. Establish tokens, typography, spacing, responsive containers, accessible buttons/forms, consistent header/footer.
-2. Create original CLTS wordmark treatment and simple motif (proposal assets if not founder-approved).
+2. Create original Anvesha wordmark treatment and simple motif (proposal assets if not founder-approved).
 3. Implement metadata, sitemap, image optimization, content schemas and empty states.
 4. Set up basic form delivery or provide explicit **not configured** behavior and a working email-based fallback; never fake submission success.
 
@@ -723,7 +723,7 @@ A reviewer should be able to answer **yes** to all applicable points:
 
 ### Brand and messaging
 
-- [ ] CLTS is explained clearly in the hero, and the name is consistent.
+- [ ] Anvesha is explained clearly in the hero, and the name is consistent.
 - [ ] Site communicates liberty, technology, society, policy and real-world action without sounding partisan or like a generic agency.
 - [ ] The Nepal-rooted / internationally relevant positioning is visible and accurate.
 - [ ] Design has one coherent, ownable identity, excellent typography and disciplined spacing.
@@ -776,7 +776,7 @@ At completion, give the founder a concise, actionable report in this exact order
 
 Use clear configurable fields or a launch checklist for these, and proceed with safe defaults:
 
-- Official registered name and status; whether the preferred spelling is `Liberty`.
+- Official registered name and status; public brand is Anvesha, as confirmed by the founder.
 - Verified domain and public email address.
 - City / public office address (if appropriate).
 - Names, positions, approved bios, and consented photographs of founders/board/staff/advisers to publish (if any).

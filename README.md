@@ -1,6 +1,6 @@
-# CLTS website
+# Anvesha website
 
-A lightweight editorial website for the **Centre for Liberty, Technology and Society**, a Nepal-based initiative. Built with Astro 7.4.5, strict TypeScript, Tailwind CSS 4 and Markdown content collections. Pages are pre-rendered HTML; only menu enhancements and publication link copying need small browser scripts.
+A lightweight editorial website for the **Anvesha**, a Nepal-based initiative. Built with Astro 7.4.5, strict TypeScript, Tailwind CSS 4 and Markdown content collections. Pages are pre-rendered HTML; only menu enhancements and publication link copying need small browser scripts.
 
 ## Run locally
 
@@ -45,7 +45,7 @@ scripts/                 # generated-site validation and asset generation
 tests/                   # internal tests; never a content collection
 ```
 
-`organization.ts` owns identity, navigation and verified contact settings. `pillars.ts` owns the five canonical focus areas; use its identifiers everywhere. `site-copy.ts` holds reusable research questions, working principles and collaboration models. Route components compose these with page-specific editorial text.
+`src/content/brand.json` owns the public name, descriptor, tagline, mission and default description. `organization.ts` combines this with navigation and verified contact settings. `pillars.ts` owns the five canonical focus areas; use its identifiers everywhere. `site-copy.ts` holds reusable research questions, working principles and collaboration models. Route components compose these with page-specific editorial text.
 
 Add a new page using `SiteLayout` and `PageHeader`; add its navigation link only if it has useful content. Update the sitemap’s static route list and browser route coverage when adding a public page. Keep styles in shared tokens and semantic component classes; Tailwind utilities are available for small layout adjustments. No CMS, database, accounts or runtime backend are required.
 
@@ -90,7 +90,7 @@ Keep the static email fallback until a delivery provider, recipient, hosting run
 
 ## Design and language
 
-The proposed CLTS mark and SVG “digital commons” illustration are original code-native assets pending founder approval. Fonts are self-hosted, Latin subsets of Manrope and Inter under their package licences. The social preview is generated from original SVG with `npm run assets:og`. No photos or third-party activity imagery are used.
+The proposed Anvesha mark and SVG “digital commons” illustration are original code-native assets pending founder approval. Fonts are self-hosted, Latin subsets of Manrope and Inter under their package licences. The social preview SVG and PNG are generated from the shared brand settings with `npm run assets:og`; regenerate them whenever branding changes. No photos or third-party activity imagery are used.
 
 English uses British spelling. Keep future translations in locale-specific content and routes with reviewed copy, language metadata and hreflang. Add a language switcher only when translated pages exist. Add a Devanagari subset when Nepali content is introduced.
 

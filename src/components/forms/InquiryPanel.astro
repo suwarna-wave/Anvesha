@@ -6,7 +6,7 @@ interface Props {
 }
 const { topic = 'General' } = Astro.props;
 const href = organization.email
-  ? `mailto:${organization.email}?subject=${encodeURIComponent(`CLTS ${topic.toLowerCase()} inquiry`)}`
+  ? `mailto:${organization.email}?subject=${encodeURIComponent(`${organization.name} ${topic.toLowerCase()} inquiry`)}`
   : undefined;
 ---
 
@@ -27,7 +27,7 @@ const href = organization.email
         Tell us a little about your interest, your organisation if relevant, and
         what you would like to explore together.
       </p>
-      <Button href={href}>Email CLTS</Button>
+      <Button href={href}>Email {organization.name}</Button>
       <p class="small">
         <a href={`mailto:${organization.email}`}>{organization.email}</a> · This
         link opens your email application. No message is sent through this

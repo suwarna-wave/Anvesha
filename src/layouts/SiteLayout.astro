@@ -11,7 +11,7 @@ interface Props {
 }
 const {
   title,
-  description = organization.mission,
+  description = organization.description,
   noindex = false,
   structuredData,
 } = Astro.props;
@@ -21,13 +21,12 @@ const canonical = Astro.site
 const indexable = organization.indexable && !!Astro.site && !noindex;
 const pageTitle =
   title === 'Home'
-    ? `CLTS — A freer, more capable digital society`
-    : `${title} | CLTS`;
+    ? `${organization.name} — ${organization.tagline}`
+    : `${title} | ${organization.name}`;
 const orgData = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: organization.name,
-  alternateName: 'CLTS',
   description: organization.mission,
   ...(Astro.site && { url: Astro.site.href }),
   ...(organization.email && { email: organization.email }),
@@ -72,7 +71,7 @@ const safeJSON = (data: unknown) =>
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="CLTS — A freer, more capable digital society. Based in Nepal."
+      content={`${organization.name} — ${organization.tagline} Based in Nepal.`}
     />
     <meta name="twitter:card" content="summary_large_image" />
     {indexable && (

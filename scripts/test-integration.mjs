@@ -12,7 +12,7 @@ import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 const source = resolve('.');
-const root = await mkdtemp(join(tmpdir(), 'clts-integration-'));
+const root = await mkdtemp(join(tmpdir(), 'anvesha-integration-'));
 async function content(
   collection,
   slug,

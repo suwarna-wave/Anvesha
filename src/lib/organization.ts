@@ -1,15 +1,15 @@
+import brand from '../content/brand.json';
 const publicEmail = import.meta.env.PUBLIC_CONTACT_EMAIL?.trim() || '';
 if (publicEmail && !/^[^\s@?&#]+@[^\s@?&#]+\.[^\s@?&#]+$/.test(publicEmail)) {
   throw new Error('PUBLIC_CONTACT_EMAIL must contain a valid email address.');
 }
 export const organization = {
-  name: 'Centre for Liberty, Technology and Society',
-  shortName: 'CLTS',
+  ...brand,
+  shortName: brand.name,
+  tagline: `${brand.taglineLead} ${brand.taglineAccent}`,
   location: 'Nepal',
   locale: 'en',
   email: publicEmail,
-  mission:
-    'Research, dialogue and practical learning for a freer, more capable digital society.',
   indexable: import.meta.env.PUBLIC_INDEXABLE === 'true',
 };
 export const navigation = [

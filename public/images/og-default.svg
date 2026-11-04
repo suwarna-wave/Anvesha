@@ -2,10 +2,10 @@
 <rect width="1200" height="630" fill="#f8f9f5"/>
 <path d="M64 119h1072M64 562h1072" stroke="#d8e2de"/>
 <g stroke="#0e726c" stroke-width="2" fill="none"><path d="m84 49 20 20-20 20-20-20 20-20Zm0 0v40M64 69h40M74 59h20v20H74z"/><circle cx="84" cy="69" r="4" fill="#0e726c"/></g>
-<text x="122" y="82" fill="#0e726c" font-family="Arial,sans-serif" font-size="36" font-weight="bold">CLTS</text>
-<text x="250" y="70" fill="#102638" font-family="Arial,sans-serif" font-size="17">Centre for Liberty, Technology and Society</text>
-<text x="64" y="190" fill="#536460" font-family="Arial,sans-serif" font-size="14" letter-spacing="3">LIBERTY. TECHNOLOGY. SOCIETY.</text>
-<g fill="#102638" font-family="Arial,sans-serif" font-size="70" font-weight="bold" letter-spacing="-3"><text x="60" y="295">A freer, more</text><text x="60" y="380">capable</text><text x="60" y="465" fill="#0e726c">digital society.</text></g>
+<text x="122" y="82" fill="#0e726c" font-family="Arial,sans-serif" font-size="38" font-weight="bold">Anvesha</text>
+<text x="330" y="75" fill="#536460" font-family="Arial,sans-serif" font-size="17">Technology, policy &amp; society</text>
+<text x="64" y="190" fill="#536460" font-family="Arial,sans-serif" font-size="14" letter-spacing="3">RESEARCH. DIALOGUE. DISCOVERY.</text>
+<g fill="#102638" font-family="Arial,sans-serif" font-size="70" font-weight="bold" letter-spacing="-3"><text x="60" y="295">Inquiry for</text><text x="60" y="380">a better</text><text x="60" y="465" fill="#0e726c">digital society.</text></g>
 <g stroke="#0e726c" stroke-width="1" fill="none" opacity=".4"><circle cx="940" cy="330" r="170"/><circle cx="940" cy="330" r="130"/><circle cx="940" cy="330" r="90"/><circle cx="940" cy="330" r="50"/><path d="M940 160v340M770 330h340M940 160l147 255H793zM940 500 793 245h294zM770 330l255-147v294zM1110 330 855 477V183z"/></g>
 <g fill="#d8a451" stroke="#0e726c"><circle cx="940" cy="160" r="6"/><circle cx="1087" cy="415" r="6"/><circle cx="793" cy="415" r="6"/></g>
 <circle cx="940" cy="330" r="6" fill="#0e726c"/>
