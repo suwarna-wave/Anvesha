@@ -1,4 +1,5 @@
 ---
+import { sitePath } from '../lib/urls';
 import '../styles/global.css';
 import SiteHeader from '../components/layout/SiteHeader.astro';
 import SiteFooter from '../components/layout/SiteFooter.astro';
@@ -28,7 +29,7 @@ const orgData = {
   '@type': 'Organization',
   name: organization.name,
   description: organization.mission,
-  ...(Astro.site && { url: Astro.site.href }),
+  ...(Astro.site && { url: new URL(sitePath('/'), Astro.site).href }),
   ...(organization.email && { email: organization.email }),
   areaServed: { '@type': 'Country', name: 'Nepal' },
 };
@@ -48,7 +49,7 @@ const safeJSON = (data: unknown) =>
       content={indexable ? 'index, follow' : 'noindex, nofollow'}
     />
     {canonical && <link rel="canonical" href={canonical} />}
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={sitePath('/favicon.svg')} />
     <meta name="theme-color" content="#F8F9F5" />
     <meta
       property="og:type"
@@ -63,8 +64,8 @@ const safeJSON = (data: unknown) =>
       property="og:image"
       content={
         Astro.site
-          ? new URL('/images/og-default.png', Astro.site).href
-          : '/images/og-default.png'
+          ? new URL(sitePath('/images/og-default.png'), Astro.site).href
+          : sitePath('/images/og-default.png')
       }
     />
     <meta property="og:image:width" content="1200" />

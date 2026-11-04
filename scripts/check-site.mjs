@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readdir, readFile, stat } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 const root = resolve('dist');
+const prefix = (process.env.BASE_PATH || '/').replace(/\/+$/, '');
 async function walk(dir) {
   const entries = await readdir(dir, { withFileTypes: true });
   return (
@@ -38,7 +39,18 @@ for (const file of htmlFiles) {
       match[1].replaceAll('&amp;', '&'),
       'https://local.test',
     );
-    const base = join(root, decodeURIComponent(url.pathname));
+    assert.ok(
+      !prefix ||
+        url.pathname === prefix ||
+        url.pathname.startsWith(`${prefix}/`),
+      `Link escaped project path: ${match[1]} in ${file}`,
+    );
+    const base = join(
+      root,
+      decodeURIComponent(
+        prefix ? url.pathname.slice(prefix.length) || '/' : url.pathname,
+      ),
+    );
     const candidates = [base, join(base, 'index.html')];
     const found = await Promise.all(
       candidates.map(async (candidate) => {

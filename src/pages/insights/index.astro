@@ -1,4 +1,5 @@
 ---
+import { sitePath } from '../../lib/urls';
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import PageHeader from '../../components/content/PageHeader.astro';
 import EmptyState from '../../components/content/EmptyState.astro';
@@ -50,7 +51,10 @@ const insights = await publicInsights();
               <p class="eyebrow">{question.topic}</p>
               <h3>{question.title}</h3>
               <p>{question.description}</p>
-              <a class="text-link" href={`/our-work#${question.pillar}`}>
+              <a
+                class="text-link"
+                href={sitePath(`/our-work#${question.pillar}`)}
+              >
                 Explore the focus area
                 <Icon size={18} />
               </a>

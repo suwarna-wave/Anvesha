@@ -1,3 +1,4 @@
+import { sitePath, withoutBase } from '../src/lib/urls';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
@@ -169,5 +170,42 @@ test('registration never opens for cancelled, full, completed or expired events'
       now,
     ),
     false,
+  );
+});
+
+test('project links preserve assets, anchors and external destinations', () => {
+  assert.equal(sitePath('/about', '/anvesha/'), '/anvesha/about/');
+  assert.equal(
+    sitePath('/our-work#dialogue', '/anvesha/'),
+    '/anvesha/our-work/#dialogue',
+  );
+  assert.equal(
+    sitePath('/documents/report.pdf', '/anvesha/'),
+    '/anvesha/documents/report.pdf',
+  );
+  assert.equal(
+    sitePath('/images/og-default.png?version=2', '/anvesha/'),
+    '/anvesha/images/og-default.png?version=2',
+  );
+  for (const path of [
+    '#main',
+    'mailto:fixture@example.org',
+    'https://example.org/register',
+    '//example.org/image.png',
+  ])
+    assert.equal(sitePath(path, '/anvesha/'), path);
+});
+test('root deployments and already-prefixed links resolve without doubling', () => {
+  assert.equal(sitePath('/about', '/'), '/about/');
+  assert.equal(sitePath('/', '/anvesha/'), '/anvesha/');
+  assert.equal(sitePath('/anvesha/about/', '/anvesha/'), '/anvesha/about/');
+  assert.equal(sitePath('/anvesha', '/anvesha/'), '/anvesha/');
+});
+test('active navigation strips only its own project prefix', () => {
+  assert.equal(withoutBase('/anvesha/about/', '/anvesha/'), '/about/');
+  assert.equal(withoutBase('/anvesha/', '/anvesha/'), '/');
+  assert.equal(
+    withoutBase('/anvesha-other/about/', '/anvesha/'),
+    '/anvesha-other/about/',
   );
 });

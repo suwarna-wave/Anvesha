@@ -1,4 +1,5 @@
 ---
+import { sitePath } from '../../lib/urls';
 import Wordmark from './Wordmark.astro';
 import { navigation, organization } from '../../lib/organization';
 ---
@@ -15,14 +16,14 @@ import { navigation, organization } from '../../lib/organization';
     <div class="footer-links">
       <p class="eyebrow">Explore {organization.name}</p>
       {navigation.slice(0, 4).map(({ href, label }) => (
-        <a href={href}>{label}</a>
+        <a href={sitePath(href)}>{label}</a>
       ))}
     </div>
     <div class="footer-links">
       <p class="eyebrow">Connect</p>
-      <a href="/partnerships">Partnerships</a>
-      <a href="/get-involved">Get involved</a>
-      <a href="/contact">Contact</a>
+      <a href={sitePath('/partnerships')}>Partnerships</a>
+      <a href={sitePath('/get-involved')}>Get involved</a>
+      <a href={sitePath('/contact')}>Contact</a>
     </div>
   </div>
   <div class="container footer-bottom">
@@ -30,8 +31,8 @@ import { navigation, organization } from '../../lib/organization';
       © {new Date().getFullYear()} {organization.name}
     </p>
     <div>
-      <a href="/privacy">Privacy</a>
-      <a href="/accessibility">Accessibility</a>
+      <a href={sitePath('/privacy')}>Privacy</a>
+      <a href={sitePath('/accessibility')}>Accessibility</a>
       <a href="#top">Back to top ↑</a>
     </div>
   </div>

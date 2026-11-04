@@ -1,4 +1,5 @@
 ---
+import { sitePath } from '../lib/urls';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import { organization } from '../lib/organization';
 import Button from '../components/ui/Button.astro';
@@ -39,8 +40,8 @@ const events = (await publicEvents())
             rights and the rule of law.
           </p>
           <div class="button-row">
-            <Button href="/our-work">Explore Our Work</Button>
-            <Button href="/partnerships" variant="text">
+            <Button href={sitePath('/our-work')}>Explore Our Work</Button>
+            <Button href={sitePath('/partnerships')} variant="text">
               Partner with {organization.name}
             </Button>
           </div>
@@ -79,7 +80,7 @@ const events = (await publicEvents())
           Anvesha brings policy insight and practical learning together—so
           people can help shape the changes that shape their lives.
         </p>
-        <a class="text-link" href="/about">
+        <a class="text-link" href={sitePath('/about')}>
           Meet the idea behind {organization.name}
           <Icon size={18} />
         </a>
@@ -104,7 +105,7 @@ const events = (await publicEvents())
       </div>
       <div>
         {pillars.map((pillar) => (
-          <a class="pillar-row" href={`/our-work#${pillar.id}`}>
+          <a class="pillar-row" href={sitePath(`/our-work#${pillar.id}`)}>
             <span class="pillar-number">{pillar.number}</span>
             <div class="pillar-name">
               <h3>{pillar.title}</h3>
@@ -164,7 +165,7 @@ const events = (await publicEvents())
               : 'Questions we’re exploring.'}
           </h2>
         </div>
-        <a class="text-link" href="/insights">
+        <a class="text-link" href={sitePath('/insights')}>
           Explore Insights
           <Icon size={18} />
         </a>
@@ -185,7 +186,10 @@ const events = (await publicEvents())
               </p>
               <h3>{question.title}</h3>
               <p>{question.description}</p>
-              <a class="text-link" href={`/our-work#${question.pillar}`}>
+              <a
+                class="text-link"
+                href={sitePath(`/our-work#${question.pillar}`)}
+              >
                 Explore the focus area
                 <Icon size={17} />
               </a>
@@ -204,7 +208,7 @@ const events = (await publicEvents())
               <p class="eyebrow">Gather & learn</p>
               <h2>Join the next conversation.</h2>
             </div>
-            <a href="/events" class="text-link">
+            <a href={sitePath('/events')} class="text-link">
               View Events
               <Icon size={18} />
             </a>
@@ -226,7 +230,7 @@ const events = (await publicEvents())
               through dialogue, practical learning and collaborative
               experimentation.
             </p>
-            <a class="text-link" href="/events">
+            <a class="text-link" href={sitePath('/events')}>
               Explore our events outlook
               <Icon size={18} />
             </a>
@@ -239,7 +243,7 @@ const events = (await publicEvents())
   <section class="closing">
     <div class="container">
       <p>Keep asking. Keep learning. Shape what comes next.</p>
-      <a class="text-link" href="/get-involved">
+      <a class="text-link" href={sitePath('/get-involved')}>
         Find your way to get involved
         <Icon size={18} />
       </a>

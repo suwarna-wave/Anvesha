@@ -1,4 +1,5 @@
 ---
+import { sitePath } from '../../lib/urls';
 import Icon from './Icon.astro';
 interface Props {
   href: string;
@@ -8,7 +9,10 @@ interface Props {
 const { href, variant = 'primary', class: className } = Astro.props;
 ---
 
-<a href={href} class:list={['button', `button--${variant}`, className]}>
+<a
+  href={sitePath(href)}
+  class:list={['button', `button--${variant}`, className]}
+>
   <slot />
   <Icon name="arrow" size={18} />
 </a>

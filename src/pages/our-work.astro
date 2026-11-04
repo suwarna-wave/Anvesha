@@ -1,4 +1,5 @@
 ---
+import { sitePath } from '../lib/urls';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import PageHeader from '../components/content/PageHeader.astro';
 import CTASection from '../components/content/CTASection.astro';
@@ -43,7 +44,7 @@ const initiatives = await publicInitiatives();
                 <strong>Intended collaborators:</strong> {pillar.audience}.
               </p>
             </div>
-            <a class="text-link" href="/partnerships#inquiry">
+            <a class="text-link" href={sitePath('/partnerships#inquiry')}>
               Explore a collaboration
               <Icon size={18} />
             </a>

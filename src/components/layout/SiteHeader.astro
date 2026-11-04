@@ -1,8 +1,9 @@
 ---
+import { sitePath, withoutBase } from '../../lib/urls';
 import Wordmark from './Wordmark.astro';
 import { navigation, organization } from '../../lib/organization';
 import Icon from '../ui/Icon.astro';
-const current = Astro.url.pathname.replace(/\/$/, '') || '/';
+const current = withoutBase(Astro.url.pathname).replace(/\/$/, '') || '/';
 ---
 
 <a class="skip-link" href="#main">
@@ -14,7 +15,7 @@ const current = Astro.url.pathname.replace(/\/$/, '') || '/';
     <nav class="desktop-nav" aria-label="Main navigation">
       {navigation.map(({ href, label }) => (
         <a
-          href={href}
+          href={sitePath(href)}
           aria-current={
             current === href || current.startsWith(`${href}/`)
               ? 'page'
@@ -26,7 +27,7 @@ const current = Astro.url.pathname.replace(/\/$/, '') || '/';
       ))}
       <a
         class="nav-partner"
-        href="/partnerships"
+        href={sitePath('/partnerships')}
         aria-current={current === '/partnerships' ? 'page' : undefined}
       >
         Partner with {organization.name}
@@ -41,7 +42,7 @@ const current = Astro.url.pathname.replace(/\/$/, '') || '/';
       <nav aria-label="Mobile navigation">
         {navigation.map(({ href, label }) => (
           <a
-            href={href}
+            href={sitePath(href)}
             aria-current={
               current === href || current.startsWith(`${href}/`)
                 ? 'page'
@@ -53,13 +54,13 @@ const current = Astro.url.pathname.replace(/\/$/, '') || '/';
           </a>
         ))}
         <a
-          href="/partnerships"
+          href={sitePath('/partnerships')}
           aria-current={current === '/partnerships' ? 'page' : undefined}
         >
           Partner with {organization.name}
           <Icon name="diagonal" size={18} />
         </a>
-        <a href="/contact">
+        <a href={sitePath('/contact')}>
           Contact
           <Icon size={18} />
         </a>

@@ -12,7 +12,7 @@ The local site works without external services. Public launch remains dependent 
 - [ ] Review partnership/funding wording with leadership and qualified Nepal counsel. No assertion of grant eligibility, fundraising authority or tax treatment is currently made.
 - [ ] Publish people, affiliations, institutional policies and documents only with verification and disclosure approval.
 - [ ] If supplied, add genuine publications/events and review their sources, dates, permissions and accessibility. These are not prerequisites to an honest empty-state launch.
-- [ ] Apply and verify security headers on the chosen host; test a real 404 response, redirects and canonical URLs.
+- [ ] Verify GitHub Pages HTTPS and provider response headers (custom headers in `deploy/headers.example` are for other hosts); test a real 404 response, redirects and canonical URLs.
 - [ ] Re-run build, checks and deployed mobile/accessibility smoke tests; preserve rollback access.
 - [ ] Only then set `PUBLIC_INDEXABLE=true`, rebuild, inspect robots/sitemap and submit the sitemap if desired.
 

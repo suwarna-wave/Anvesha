@@ -21,6 +21,7 @@
     "test:integration": "node scripts/test-integration.mjs"
   },
   "dependencies": {
+    "@astrojs/markdown-satteri": "0.4.6",
     "@fontsource-variable/inter": "5.3.0",
     "@fontsource-variable/manrope": "5.3.0",
     "@tailwindcss/vite": "4.3.4",
@@ -37,10 +38,10 @@
     "lighthouse": "13.6.0",
     "prettier": "3.9.10",
     "prettier-plugin-astro": "1.1.2",
+    "sharp": "0.35.5",
     "tsx": "4.23.15",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.72.1",
-    "sharp": "0.35.5"
+    "typescript-eslint": "8.72.1"
   },
   "allowScripts": {
     "esbuild@0.28.2": true

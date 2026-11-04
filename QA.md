@@ -39,9 +39,9 @@ Raw reports are available locally as `qa-artifacts/lighthouse-home.json` and `qa
 - No independent accessibility certification, screen-reader audit, physical-device testing or cross-browser audit has been performed. Axe and Lighthouse do not establish complete WCAG conformance.
 - Detail templates are tested with isolated fixtures; there is no approved publication/event to inspect as live organisational content.
 - No form or newsletter delivery is claimed or tested. Configured email links were tested with a reserved example address in the isolated build, not a real Anvesha inbox.
-- Security-header configuration is supplied for deployment. Astro preview does not apply the host-specific `_headers` file; verify actual response headers on the chosen host.
+- Security-header configuration is supplied for deployment. Astro preview does not apply the host-specific `deploy/headers.example` reference; verify actual response headers on the chosen host.
 - Static event state, dates and registration availability require rebuilds. The external registration provider must independently enforce closure and capacity.
-- Privacy/legal review, verified contact, production domain and hosting settings remain launch requirements. No public deployment was requested or performed.
+- Privacy/legal review, verified contact, production domain and hosting settings remain launch requirements. No successful public deployment had been verified at the time of those initial checks.
 
 ## Anvesha rebrand verification
 
@@ -61,3 +61,11 @@ The homepage and social image share one original, simplified pyramid illustratio
 Browser tests use their own production preview on port 4322 rather than a running development server. Keep that port free. The Lighthouse figures above remain initial-build observations, not measurements of subsequent visual revisions.
 
 Validation of the simplified design: production build, lint, formatting and Astro/TypeScript checks passed. All 11 browser checks passed, including five responsive widths, mobile/desktop accessibility scans, keyboard/no-JavaScript navigation and enlarged-text reflow. Generated-site checks passed for 11 pages and 332 local references. The desktop homepage was visually reviewed. No new Lighthouse measurement was taken.
+
+## GitHub Pages deployment preparation
+
+Added `.github/workflows/deploy-pages.yml` for checked builds and deployment of `dist/`. The workflow reads the live origin/base path from GitHub Pages metadata, uses the Node version in `.nvmrc`, and does not commit generated output. Indexing remains off by default; the public contact inbox is optional configuration.
+
+Validation: 9 content/routing tests passed; isolated fixtures built successfully at both `/` and `/anvesha/`, including Markdown links/images, publication templates, sitemap, RSS, canonical paths and draft exclusion. The `/anvesha/` production build passed validation for 11 HTML pages and 332 local references. All 11 browser checks passed at that project path, including five viewport widths, keyboard/no-JavaScript navigation, 404 behaviour, reduced motion and mobile/desktop accessibility scans. Type checking, lint, formatting and a lockfile/install dry run passed.
+
+GitHub Pages does not apply custom `_headers` files. The alternate-host header example now lives outside public output at `deploy/headers.example`. A successful remote deployment and repository rename must be confirmed separately; local validation does not establish either.

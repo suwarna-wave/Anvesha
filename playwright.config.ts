@@ -13,7 +13,7 @@ export default defineConfig({
   },
   webServer: {
     command: `npm run preview -- --port ${previewPort} --ignore-lock`,
-    url: `http://127.0.0.1:${previewPort}`,
+    url: `http://127.0.0.1:${previewPort}${process.env.BASE_PATH || '/'}`,
     reuseExistingServer: false,
   },
 });

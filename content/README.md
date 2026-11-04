@@ -80,3 +80,7 @@ Changing a filename changes its URL. Add an explicit host redirect for previousl
 ## Brand copy
 
 Edit `src/content/brand.json` for Anvesha’s name, descriptor, primary headline, supporting eyebrow, mission and default description. Run `npm run assets:og` to regenerate both social-preview assets, then build and review the homepage at mobile and desktop widths. Review narrative pages and this brief alongside changes so the public voice stays consistent. A public-brand change does not establish a registered legal name or status.
+
+## Links on GitHub Pages
+
+Use standard Markdown links such as `[Our work](/our-work)` and public-image paths such as `/images/approved-image.webp`. The configured Markdown processor applies the deployed repository prefix automatically. Report metadata stays `/documents/approved-report.pdf`; the report button resolves it for Pages. Avoid hard-coding `/anvesha/` in editorial content so a later custom domain remains compatible.

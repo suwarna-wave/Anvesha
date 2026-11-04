@@ -1,4 +1,5 @@
 ---
+import { sitePath } from '../lib/urls';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import PageHeader from '../components/content/PageHeader.astro';
 import Button from '../components/ui/Button.astro';
@@ -11,8 +12,8 @@ import Button from '../components/ui/Button.astro';
     description="The link may have changed, or the page may no longer be available. Our main pages are a good place to continue."
   >
     <div class="button-row" style="margin-top:32px">
-      <Button href="/">Back to Home</Button>
-      <Button href="/our-work" variant="secondary">
+      <Button href={sitePath('/')}>Back to Home</Button>
+      <Button href={sitePath('/our-work')} variant="secondary">
         Explore Our Work
       </Button>
     </div>

@@ -1,4 +1,5 @@
 ---
+import { sitePath } from '../../lib/urls';
 import { render } from 'astro:content';
 import { pillars } from '../../content/pillars';
 import type { CollectionEntry } from 'astro:content';
@@ -59,7 +60,7 @@ const data = {
   </PageHeader>
   <div class="container detail-topics">
     {entry.data.pillars.map((id) => (
-      <a href={`/our-work#${id}`}>
+      <a href={sitePath(`/our-work#${id}`)}>
         {pillars.find((pillar) => pillar.id === id)?.title}
       </a>
     ))}
@@ -114,7 +115,7 @@ const data = {
         {!registrationOpen && entry.data.state === 'open' && (
           <p class="small">Registration is currently unavailable.</p>
         )}
-        <a class="text-link" href="/events">
+        <a class="text-link" href={sitePath('/events')}>
           ← Back to Events
         </a>
       </div>

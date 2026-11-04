@@ -1,4 +1,5 @@
 ---
+import { sitePath } from '../../lib/urls';
 import { organization, inquiryTopics } from '../../lib/organization';
 import Button from '../ui/Button.astro';
 interface Props {
@@ -27,7 +28,7 @@ const href = organization.email
         Tell us a little about your interest, your organisation if relevant, and
         what you would like to explore together.
       </p>
-      <Button href={href}>Email {organization.name}</Button>
+      <Button href={sitePath(href)}>Email {organization.name}</Button>
       <p class="small">
         <a href={`mailto:${organization.email}`}>{organization.email}</a> · This
         link opens your email application. No message is sent through this
@@ -47,7 +48,7 @@ const href = organization.email
     </div>
   )}
   <p class="small">
-    Read our <a href="/privacy">privacy notice</a> for information about contact
-    and data use.
+    Read our <a href={sitePath('/privacy')}>privacy notice</a> for information
+    about contact and data use.
   </p>
 </section>

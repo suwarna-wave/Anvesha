@@ -66,26 +66,64 @@ See [the editorial guide](content/README.md). Add Markdown files to `src/content
 
 Copy `.env.example` to `.env`. Never commit actual secrets.
 
-| Variable               | Default | Effect                                                                                                                       |
-| ---------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `SITE_URL`             | empty   | Verified HTTPS origin, such as your eventual domain; enables absolute canonical and social URLs. No path allowed.            |
-| `PUBLIC_INDEXABLE`     | `false` | Set to `true` only after launch approval. Requires `SITE_URL`; enables indexing, sitemap entries and public structured data. |
-| `PUBLIC_CONTACT_EMAIL` | empty   | Verified public inbox. Enables clearly labelled `mailto:` links, not a submission form.                                      |
+| Variable               | Default | Effect                                                                                                                                                       |
+| ---------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `SITE_URL`             | empty   | Verified HTTPS origin, such as your eventual domain; enables absolute canonical and social URLs. Use an origin only; put the repository path in `BASE_PATH`. |
+| `BASE_PATH`            | `/`     | Project path, e.g. `/anvesha/`; Pages workflow reads it from GitHub automatically.                                                                           |
+| `PUBLIC_INDEXABLE`     | `false` | Set to `true` only after launch approval. Requires `SITE_URL`; enables indexing, sitemap entries and public structured data.                                 |
+| `PUBLIC_CONTACT_EMAIL` | empty   | Verified public inbox. Enables clearly labelled `mailto:` links, not a submission form.                                                                      |
 
 `PUBLIC_*` values are public build configuration. Do not place provider keys there. A bad email or invalid site origin fails the build. Preview pages default to `noindex, nofollow` and `robots.txt` disallows crawling. These directives are **not access control**; use your host’s password protection for confidential previews. RSS is populated only when indexing is enabled and approved publications exist.
 
 No online inquiries, newsletter, payments, analytics or social integrations are currently activated. Without a verified inbox, contact sections explain that the contact channel is forthcoming and do not collect visitor data.
 
-## Deploy
+## Deploy with GitHub Pages
 
-1. Complete [LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md), including the contact mechanism and privacy review.
-2. Configure the verified production origin, public email and indexing setting in the host’s build environment.
-3. Use Node 22.23.4+, install with `npm ci`, and build with `npm run build`. Publish **`dist/`** to a static host.
-4. Configure the host to return `404.html` with HTTP 404 for missing routes. Do not enable an SPA catch-all rewrite.
-5. Apply the headers in `public/_headers` if your host supports that file; otherwise copy them into the server/CDN configuration. The Astro preview server does not apply this host-specific file. CSP currently forbids forms and third-party scripts; deliberately revise it if approved services are added.
-6. Verify HTTPS, canonical origin, contact links, headers, unknown routes and mobile navigation on the deployed domain. Retain the previous deployment for rollback.
+The existing source layout is already suitable for Pages. Source stays in `src/`, public assets in `public/`, and Astro builds static output into ignored `dist/`. `.github/workflows/deploy-pages.yml` checks the source, builds and validates the site, uploads `dist/`, then deploys with GitHub’s official Pages actions. There is no separate `docs/` folder, committed build output or `gh-pages` branch.
 
-Static content and sources live in Git. Use pull requests, editorial review and deploy previews; restore a previous revision to roll back. Back up approved documents along with content. No database migrations are needed. Recheck dependencies with `npm audit`; the lockfile pins the tested dependency graph. `minimatch` and `glob` overrides select patched versions used by development tools; revisit on tool upgrades.
+### One-time repository setup
+
+1. Rename the repository to **`anvesha`** in GitHub **Settings → General → Repository name**. This requires repository administration access. Renaming the local folder alone does not rename GitHub or its Pages URL.
+2. In **Settings → Pages → Build and deployment**, select **GitHub Actions** as the source. Keep **Enforce HTTPS** enabled when available. If the repository is private, confirm that your GitHub plan supports Pages; do not change source-code visibility just to deploy the site without an explicit decision.
+3. Update your local remote after the repository is renamed:
+
+   ```sh
+   git remote set-url origin git@github.com:suwarna-wave/anvesha.git
+   ```
+
+4. Push `main`, or open **Actions → Deploy Anvesha to GitHub Pages → Run workflow**. Wait for both build and deploy to succeed. The deployment job reports the actual site URL.
+
+Expected project URL after renaming: **https://suwarna-wave.github.io/anvesha/**. The workflow reads the origin and project path from GitHub Pages metadata, so it also supports the current repository name or a later approved custom domain without hard-coded path edits. If a repository is renamed after a deployment, run the workflow again. Pages project URLs do not inherit repository URL redirects.
+
+### Public build settings
+
+Optional repository **Settings → Secrets and variables → Actions → Variables**:
+
+- `PUBLIC_CONTACT_EMAIL`: a verified public inbox; enables email links.
+- `PUBLIC_INDEXABLE`: defaults to `false`. Set `true` only after the content, contact and privacy launch review is complete. Visitors can use a published URL while it remains excluded from indexing.
+
+The workflow supplies `SITE_URL` and `BASE_PATH` from the Pages settings. No delivery-service secrets, personal access token or committed `.env` file are needed to build/deploy. Enabling Pages and renaming the repository are separate administrative actions; a normal workflow token cannot grant itself those permissions.
+
+### Test the project path locally
+
+```sh
+SITE_URL=https://suwarna-wave.github.io BASE_PATH=/anvesha/ npm run build
+BASE_PATH=/anvesha/ npm run test:site
+BASE_PATH=/anvesha/ npm run test:browser
+BASE_PATH=/anvesha/ npm run preview
+```
+
+Open `http://127.0.0.1:4321/anvesha/`. Shell variables apply to one command. For ordinary local development, leave `BASE_PATH=/` in `.env`. To return the production preview to a root build, run `npm run build` again without the project-path override.
+
+Internal links, assets, downloads, canonical URLs, social previews, sitemap and RSS respect `BASE_PATH`. Use `sitePath()` from `src/lib/urls.ts` when adding authored links in Astro components; external URLs, email links and same-page fragments are preserved. Standard Markdown links/images are prefixed by the configured Markdown processor. Prefer standard Markdown links to raw HTML in editorial content.
+
+GitHub Pages serves `404.html` for missing project pages. It does not support arbitrary custom HTTP headers or `_headers` files. `deploy/headers.example` is an optional reference for alternative hosts that support custom headers; it is deliberately outside public output. Verify the actual deployed HTTPS responses rather than claiming those example headers are active on Pages.
+
+Static sources and approved documents live in Git. Roll back by reverting the source commit and letting Actions deploy it. `dist/`, `.env`, caches and browser reports stay ignored. Recheck dependencies with `npm audit`; the lockfile pins the tested graph. `minimatch` and `glob` overrides select patched versions used by development tools; revisit on upgrades.
+
+### Local folder name
+
+For a fresh checkout, the renamed repository clones into an `anvesha` folder. Existing checkouts can also be renamed to `anvesha` after stopping their development server and closing the old workspace; reopen the renamed folder in your editor. The folder’s name does not affect the site’s public identity or deployment.
 
 ## Future form delivery
 

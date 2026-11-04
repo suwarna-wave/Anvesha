@@ -1,4 +1,5 @@
 ---
+import { sitePath } from '../../lib/urls';
 import type { CollectionEntry } from 'astro:content';
 import { formatDate, formatEventTime } from '../../lib/content';
 import Icon from '../ui/Icon.astro';
@@ -20,14 +21,14 @@ const { entry } = Astro.props;
       {entry.data.type} · {entry.data.state}
     </p>
     <h3>
-      <a href={`/events/${entry.id}`}>{entry.data.title}</a>
+      <a href={sitePath(`/events/${entry.id}`)}>{entry.data.title}</a>
     </h3>
     <p>{entry.data.summary}</p>
     <p class="small">
       {formatEventTime(entry.data.startsAt!)} NPT · {entry.data.format}
     </p>
   </div>
-  <a class="text-link" href={`/events/${entry.id}`}>
+  <a class="text-link" href={sitePath(`/events/${entry.id}`)}>
     Event details
     <Icon size={18} />
   </a>
