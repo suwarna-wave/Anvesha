@@ -1,0 +1,38 @@
+---
+import Wordmark from './Wordmark.astro';
+import { navigation, organization } from '../../lib/organization';
+---
+
+<footer class="site-footer">
+  <div class="container footer-main">
+    <div class="footer-identity">
+      <Wordmark compact />
+      <p>{organization.mission}</p>
+      <span class="location">
+        <span class="dot"></span>Based in Nepal. Open to the world.
+      </span>
+    </div>
+    <div class="footer-links">
+      <p class="eyebrow">Explore CLTS</p>
+      {navigation.slice(0, 4).map(({ href, label }) => (
+        <a href={href}>{label}</a>
+      ))}
+    </div>
+    <div class="footer-links">
+      <p class="eyebrow">Connect</p>
+      <a href="/partnerships">Partnerships</a>
+      <a href="/get-involved">Get involved</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>
+      © {new Date().getFullYear()} {organization.name}
+    </p>
+    <div>
+      <a href="/privacy">Privacy</a>
+      <a href="/accessibility">Accessibility</a>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>

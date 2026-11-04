@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDate } from '../../lib/content';
+import Icon from '../ui/Icon.astro';
+interface Props {
+  entry: CollectionEntry<'insights'>;
+}
+const { entry } = Astro.props;
+---
+
+<article class="insight-card">
+  <p class="eyebrow">
+    {entry.data.type} · {formatDate(entry.data.publishedAt!)}
+  </p>
+  <h3>
+    <a href={`/insights/${entry.id}`}>{entry.data.title}</a>
+  </h3>
+  <p>{entry.data.summary}</p>
+  <a class="text-link" href={`/insights/${entry.id}`}>
+    Read insight
+    <Icon size={18} />
+  </a>
+</article>

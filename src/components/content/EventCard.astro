@@ -1,0 +1,34 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDate, formatEventTime } from '../../lib/content';
+import Icon from '../ui/Icon.astro';
+interface Props {
+  entry: CollectionEntry<'events'>;
+}
+const { entry } = Astro.props;
+---
+
+<article class="event-card">
+  <div class="event-date">
+    <Icon name="calendar" />
+    <time datetime={entry.data.startsAt!.toISOString()}>
+      {formatDate(entry.data.startsAt!)}
+    </time>
+  </div>
+  <div>
+    <p class="eyebrow">
+      {entry.data.type} · {entry.data.state}
+    </p>
+    <h3>
+      <a href={`/events/${entry.id}`}>{entry.data.title}</a>
+    </h3>
+    <p>{entry.data.summary}</p>
+    <p class="small">
+      {formatEventTime(entry.data.startsAt!)} NPT · {entry.data.format}
+    </p>
+  </div>
+  <a class="text-link" href={`/events/${entry.id}`}>
+    Event details
+    <Icon size={18} />
+  </a>
+</article>

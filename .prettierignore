@@ -1,0 +1,8 @@
+node_modules
+dist
+.astro
+package-lock.json
+AGENTS.md
+qa-artifacts
+playwright-report
+test-results

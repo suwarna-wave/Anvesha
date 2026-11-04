@@ -1,0 +1,60 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import PageHeader from '../../components/content/PageHeader.astro';
+import EmptyState from '../../components/content/EmptyState.astro';
+import EventCard from '../../components/content/EventCard.astro';
+import CTASection from '../../components/content/CTASection.astro';
+import { publicEvents } from '../../lib/content';
+const events = await publicEvents();
+const now = new Date();
+const upcoming = events.filter(
+  ({ data }) =>
+    data.state !== 'completed' && (data.endsAt || data.startsAt!) >= now,
+);
+const past = events
+  .filter(
+    ({ data }) =>
+      data.state === 'completed' || (data.endsAt || data.startsAt!) < now,
+  )
+  .reverse();
+---
+
+<SiteLayout
+  title="Events"
+  description="Find CLTS’s publicly announced dialogues, workshops and learning opportunities. See confirmed upcoming events and the public archive when available."
+>
+  <PageHeader
+    eyebrow="Events & conversations"
+    title="Different perspectives. A shared space."
+    description="Public dialogue, practical learning and collaborative exploration are part of the work we aim to develop."
+  />
+  <section class="section">
+    <div class="container">
+      <h2 class="collection-heading">Upcoming</h2>
+      {upcoming.length ? (
+        upcoming.map((entry) => <EventCard entry={entry} />)
+      ) : (
+        <EmptyState
+          icon="calendar"
+          title="Conversations and programmes are taking shape."
+          description="There are no publicly announced events at the moment. We are shaping future conversations and learning opportunities; confirmed details will be shared here."
+        />
+      )}
+    </div>
+  </section>
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <h2 class="collection-heading">Past events</h2>
+      {past.length ? (
+        past.map((entry) => <EventCard entry={entry} />)
+      ) : (
+        <p class="small">There are no published past events to share yet.</p>
+      )}
+    </div>
+  </section>
+  <CTASection
+    title="What conversation is missing?"
+    description="We’re interested in exploring thoughtful dialogues, workshops and public-interest challenges with institutional partners."
+    label="Explore Co-hosting Opportunities"
+  />
+</SiteLayout>

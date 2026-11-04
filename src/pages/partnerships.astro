@@ -1,0 +1,108 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHeader from '../components/content/PageHeader.astro';
+import InquiryPanel from '../components/forms/InquiryPanel.astro';
+import Button from '../components/ui/Button.astro';
+import { collaborationModels } from '../content/site-copy';
+---
+
+<SiteLayout
+  title="Partnerships"
+  description="Explore research, learning, dialogue and civic innovation partnerships with CLTS, a Nepal-based technology and society initiative."
+>
+  <PageHeader
+    eyebrow="Partnerships"
+    title="Useful work begins with a shared question."
+    description="We welcome conversations with research institutions, educators, public agencies, technologists, civil society and foundations."
+  >
+    <div style="margin-top:28px">
+      <Button href="#inquiry">Partnership Inquiry</Button>
+    </div>
+  </PageHeader>
+  <section class="section">
+    <div class="container content-split">
+      <div>
+        <p class="eyebrow">Why collaborate</p>
+        <h2>
+          Local context.
+          <br />
+          Connected thinking.
+        </h2>
+      </div>
+      <div class="prose">
+        <p>
+          CLTS aims to bring Nepal’s experience into broader conversations about
+          rights, technology and public policy. Our interdisciplinary focus
+          connects rigorous questions with practical ways for people to learn,
+          participate and contribute.
+        </p>
+        <p>
+          We are an emerging initiative. The collaboration models below are
+          possibilities to explore together, rather than a claim of an
+          established project portfolio.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="section tint">
+    <div class="container">
+      <div class="section-intro">
+        <div>
+          <p class="eyebrow">Areas for collaboration</p>
+          <h2>
+            Different ways to make
+            <br />a useful contribution.
+          </h2>
+        </div>
+      </div>
+      <div class="model-grid">
+        {collaborationModels.map((model) => (
+          <article class="model">
+            <h3>{model.title}</h3>
+            <p>{model.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container content-split">
+      <div>
+        <p class="eyebrow">An accountable approach</p>
+        <h2>Build trust into the work.</h2>
+      </div>
+      <div class="prose">
+        <p>
+          Our intended working principles include transparent sources, informed
+          dialogue, accessible outputs and appropriate care for participants’
+          privacy and wellbeing.
+        </p>
+        <p>
+          For each potential collaboration, responsibilities, expected outcomes,
+          evaluation, safeguarding and financial arrangements need to be agreed
+          before work begins. These are proposed standards; we do not represent
+          them as formally adopted institutional policies.
+        </p>
+        <h3>Institutional information</h3>
+        <p>
+          Verified governance, registration information, approved policies and
+          due-diligence documents will be made available when ready for public
+          sharing. No grant eligibility or funding authorisation is asserted by
+          this website.
+        </p>
+        <h3>Partnership & grant conversations</h3>
+        <p>
+          Interested in supporting research, digital inclusion or public
+          dialogue? We welcome conversations with foundations and institutional
+          partners. Any funding arrangement is subject to applicable approvals
+          and compliance requirements.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <InquiryPanel topic="Partnerships" />
+    </div>
+  </section>
+</SiteLayout>

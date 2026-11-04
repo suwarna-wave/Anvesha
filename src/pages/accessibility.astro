@@ -1,0 +1,70 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHeader from '../components/content/PageHeader.astro';
+import { organization } from '../lib/organization';
+---
+
+<SiteLayout
+  title="Accessibility"
+  description="CLTS’s accessibility goals, supported navigation features and information about reporting barriers."
+>
+  <PageHeader
+    eyebrow="Accessibility"
+    title="An open conversation should be accessible."
+    description="We aim to make this website useful to people with different abilities, devices and connections."
+  />
+  <div class="reading-layout">
+    <div class="container prose">
+      <h2>Our goal</h2>
+      <p>
+        We aim to meet WCAG 2.2 Level AA. This is a design and engineering
+        target, not a claim of independent certification or a completed
+        accessibility audit.
+      </p>
+      <h2>Using the website</h2>
+      <ul>
+        <li>
+          A skip link lets keyboard users move directly to the main content.
+        </li>
+        <li>
+          Navigation uses standard links, with visible keyboard focus and an
+          expandable mobile menu.
+        </li>
+        <li>Core content remains available without JavaScript.</li>
+        <li>Layouts reflow on small screens and when text is enlarged.</li>
+        <li>
+          Motion preferences are respected, and essential information does not
+          depend on animation.
+        </li>
+      </ul>
+      <h2>Current limitations</h2>
+      <p>
+        Testing cannot cover every combination of browser, device and assistive
+        technology. Future publications, downloadable documents and external
+        registration services will need their own accessibility review.
+      </p>
+      <h2>Report a barrier</h2>
+      {organization.email ? (
+        <p>
+          Email{' '}
+          <a
+            href={`mailto:${organization.email}?subject=Website%20accessibility`}
+          >
+            {organization.email}
+          </a>
+          . Tell us which page you were using, what went wrong, and your browser
+          or assistive technology if you are comfortable sharing it.
+        </p>
+      ) : (
+        <p>
+          Our public reporting channel is being prepared. A working
+          accessibility contact must be configured before public launch.
+        </p>
+      )}
+      <p>
+        We do not ask you to share a diagnosis or other sensitive personal
+        information to describe a website problem.
+      </p>
+    </div>
+  </div>
+</SiteLayout>

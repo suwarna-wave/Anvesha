@@ -1,0 +1,100 @@
+---
+interface Props {
+  small?: boolean;
+}
+const { small = false } = Astro.props;
+const rings = [78, 118, 158, 198];
+const angles = [0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330];
+const point = (angle: number, radius: number) => ({
+  x: 250 + Math.cos((angle * Math.PI) / 180) * radius,
+  y: 250 + Math.sin((angle * Math.PI) / 180) * radius,
+});
+---
+
+<div class:list={['commons-visual', { 'commons-visual--small': small }]}>
+  <svg
+    viewBox="0 0 500 500"
+    fill="none"
+    role="img"
+    aria-label="An open network connecting people, policy and technology"
+  >
+    <defs>
+      <pattern
+        id={small ? 'grid-small' : 'grid'}
+        width="25"
+        height="25"
+        patternUnits="userSpaceOnUse"
+      >
+        <circle cx="1" cy="1" r=".7" fill="currentColor" opacity=".18" />
+      </pattern>
+    </defs>
+    <rect
+      width="500"
+      height="500"
+      fill={`url(#${small ? 'grid-small' : 'grid'})`}
+    />
+    <g class="network-lines" stroke="currentColor" stroke-width=".8">
+      {rings.map((r) => (
+        <circle cx="250" cy="250" r={r} />
+      ))}
+      {angles.map((a) => {
+        const p = point(a, 198);
+        return <path d={`M250 250L${p.x} ${p.y}`} />;
+      })}
+      <path d="M250 52 421.5 349 78.5 349Z" />
+      <path d="M250 448 78.5 151 421.5 151Z" />
+      <path d="M52 250 349 78.5 349 421.5Z" />
+      <path d="M448 250 151 421.5 151 78.5Z" />
+    </g>
+    <circle
+      cx="250"
+      cy="250"
+      r="48"
+      fill="var(--paper)"
+      stroke="var(--teal)"
+      stroke-width="1.2"
+    />
+    <path
+      d="m250 224 26 26-26 26-26-26 26-26Zm0 0v52m-26-26h52"
+      stroke="var(--teal)"
+      stroke-width="1.3"
+    />
+    <circle cx="250" cy="250" r="5" fill="var(--teal)" />
+    {angles
+      .filter((_, i) => i % 2 === 0)
+      .map((a) => {
+        const p = point(a, 158);
+        return <circle cx={p.x} cy={p.y} r="3.5" fill="var(--teal)" />;
+      })}
+    <g fill="var(--paper)" stroke="var(--teal)" stroke-width="1.3">
+      <circle cx="250" cy="52" r="7" />
+      <circle cx="421.5" cy="349" r="7" />
+      <circle cx="78.5" cy="349" r="7" />
+    </g>
+    <g fill="var(--gold)">
+      <circle cx="250" cy="52" r="3" />
+      <circle cx="421.5" cy="349" r="3" />
+      <circle cx="78.5" cy="349" r="3" />
+    </g>
+    <g class="motif-label" fill="var(--ink)" text-anchor="middle">
+      <text x="250" y="24">
+        PEOPLE
+      </text>
+      <text x="425" y="378">
+        TECHNOLOGY
+      </text>
+      <text x="77" y="378">
+        PUBLIC POLICY
+      </text>
+    </g>
+    <g stroke="var(--teal)" stroke-width="1">
+      <path d="M20 20h12m-6-6v12M468 480h12m-6-6v12" />
+    </g>
+  </svg>
+  {!small && (
+    <div class="visual-caption">
+      <span>THE DIGITAL COMMONS</span>
+      <span>Many perspectives. Shared possibilities.</span>
+    </div>
+  )}
+</div>

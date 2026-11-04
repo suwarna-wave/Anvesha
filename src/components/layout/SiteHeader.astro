@@ -1,0 +1,86 @@
+---
+import Wordmark from './Wordmark.astro';
+import { navigation } from '../../lib/organization';
+import Icon from '../ui/Icon.astro';
+const current = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<a class="skip-link" href="#main">
+  Skip to content
+</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <Wordmark />
+    <nav class="desktop-nav" aria-label="Main navigation">
+      {navigation.map(({ href, label }) => (
+        <a
+          href={href}
+          aria-current={
+            current === href || current.startsWith(`${href}/`)
+              ? 'page'
+              : undefined
+          }
+        >
+          {label}
+        </a>
+      ))}
+      <a
+        class="nav-partner"
+        href="/partnerships"
+        aria-current={current === '/partnerships' ? 'page' : undefined}
+      >
+        Partner with CLTS
+        <Icon name="diagonal" size={16} />
+      </a>
+    </nav>
+    <details class="mobile-menu">
+      <summary aria-label="Main menu">
+        <span>Menu</span>
+        <span class="menu-lines" aria-hidden="true"></span>
+      </summary>
+      <nav aria-label="Mobile navigation">
+        {navigation.map(({ href, label }) => (
+          <a
+            href={href}
+            aria-current={
+              current === href || current.startsWith(`${href}/`)
+                ? 'page'
+                : undefined
+            }
+          >
+            {label}
+            <Icon size={18} />
+          </a>
+        ))}
+        <a
+          href="/partnerships"
+          aria-current={current === '/partnerships' ? 'page' : undefined}
+        >
+          Partner with CLTS
+          <Icon name="diagonal" size={18} />
+        </a>
+        <a href="/contact">
+          Contact
+          <Icon size={18} />
+        </a>
+      </nav>
+    </details>
+  </div>
+</header>
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>('.mobile-menu');
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menu?.open) {
+      menu.open = false;
+      menu.querySelector('summary')?.focus();
+    }
+  });
+  document.addEventListener('click', (event) => {
+    if (
+      menu?.open &&
+      event.target instanceof Node &&
+      !menu.contains(event.target)
+    )
+      menu.open = false;
+  });
+</script>

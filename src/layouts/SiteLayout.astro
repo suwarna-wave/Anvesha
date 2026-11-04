@@ -1,0 +1,92 @@
+---
+import '../styles/global.css';
+import SiteHeader from '../components/layout/SiteHeader.astro';
+import SiteFooter from '../components/layout/SiteFooter.astro';
+import { organization } from '../lib/organization';
+interface Props {
+  title: string;
+  description?: string;
+  noindex?: boolean;
+  structuredData?: Record<string, unknown>;
+}
+const {
+  title,
+  description = organization.mission,
+  noindex = false,
+  structuredData,
+} = Astro.props;
+const canonical = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site).href
+  : undefined;
+const indexable = organization.indexable && !!Astro.site && !noindex;
+const pageTitle =
+  title === 'Home'
+    ? `CLTS — A freer, more capable digital society`
+    : `${title} | CLTS`;
+const orgData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: organization.name,
+  alternateName: 'CLTS',
+  description: organization.mission,
+  ...(Astro.site && { url: Astro.site.href }),
+  ...(organization.email && { email: organization.email }),
+  areaServed: { '@type': 'Country', name: 'Nepal' },
+};
+const safeJSON = (data: unknown) =>
+  JSON.stringify(data).replace(/</g, '\\u003c');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="robots"
+      content={indexable ? 'index, follow' : 'noindex, nofollow'}
+    />
+    {canonical && <link rel="canonical" href={canonical} />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#F8F9F5" />
+    <meta
+      property="og:type"
+      content={structuredData?.['@type'] === 'Article' ? 'article' : 'website'}
+    />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content={organization.name} />
+    <meta property="og:locale" content="en_GB" />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <meta
+      property="og:image"
+      content={
+        Astro.site
+          ? new URL('/images/og-default.png', Astro.site).href
+          : '/images/og-default.png'
+      }
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="CLTS — A freer, more capable digital society. Based in Nepal."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    {indexable && (
+      <script type="application/ld+json" set:html={safeJSON(orgData)} />
+    )}
+    {indexable && structuredData && (
+      <script type="application/ld+json" set:html={safeJSON(structuredData)} />
+    )}
+  </head>
+  <body id="top">
+    <SiteHeader />
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

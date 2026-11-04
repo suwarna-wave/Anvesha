@@ -1,0 +1,81 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHeader from '../components/content/PageHeader.astro';
+import CTASection from '../components/content/CTASection.astro';
+import Icon from '../components/ui/Icon.astro';
+import { pillars } from '../content/pillars';
+import { publicInitiatives } from '../lib/content';
+const initiatives = await publicInitiatives();
+---
+
+<SiteLayout
+  title="Our Work"
+  description="Explore CLTS’s five focus areas: digital liberty, technology policy, practical learning, public dialogue and civic innovation."
+>
+  <PageHeader
+    eyebrow="Our work"
+    title="Connected questions. Practical possibilities."
+    description="Five focus areas guide the research, conversations and learning opportunities we aim to develop."
+  />
+  <div class="container">
+    {pillars.map((pillar) => (
+      <section class="focus-detail" id={pillar.id}>
+        <div class="focus-topline">
+          <Icon name={pillar.icon} />
+          <p class="eyebrow">Focus area {pillar.number}</p>
+          <span class="status-label">Exploring</span>
+        </div>
+        <div class="content-split">
+          <div>
+            <h2>{pillar.title}</h2>
+            <p class="focus-description">{pillar.description}</p>
+          </div>
+          <div>
+            <p class="question">{pillar.question}</p>
+            <div class="focus-aside">
+              <p class="eyebrow">Potential activities</p>
+              <ul class="focus-activities">
+                {pillar.activities.map((activity) => (
+                  <li>{activity}</li>
+                ))}
+              </ul>
+              <p class="small">
+                <strong>Intended collaborators:</strong> {pillar.audience}.
+              </p>
+            </div>
+            <a class="text-link" href="/partnerships#inquiry">
+              Explore a collaboration
+              <Icon size={18} />
+            </a>
+          </div>
+        </div>
+      </section>
+    ))}
+  </div>
+  {initiatives.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">Initiatives</p>
+        <div class="model-grid">
+          {initiatives.map((entry) => (
+            <article class="model">
+              <span class="status-label">{entry.data.lifecycle}</span>
+              <h2>{entry.data.title}</h2>
+              <p>{entry.data.summary}</p>
+              <p class="small">For {entry.data.audience}</p>
+              <ul class="focus-activities">
+                {entry.data.activities.map((activity) => (
+                  <li>{activity}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+  <CTASection
+    title="Bring a different perspective."
+    description="The most useful work begins with a shared question. Explore how your institution, experience or expertise could help shape a future project."
+  />
+</SiteLayout>

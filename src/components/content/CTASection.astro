@@ -1,0 +1,28 @@
+---
+import Button from '../ui/Button.astro';
+interface Props {
+  title?: string;
+  description?: string;
+  href?: string;
+  label?: string;
+}
+const {
+  title = 'Change happens across disciplines.',
+  description = 'Research institutions, educators, public agencies, technologists and civil society each bring a different part of the picture. Let’s explore what we could do together.',
+  href = '/partnerships',
+  label = 'Explore Partnerships',
+} = Astro.props;
+---
+
+<section class="collaboration-section section">
+  <div class="container collaboration-inner">
+    <div>
+      <p class="eyebrow">A shared endeavour</p>
+      <h2>{title}</h2>
+    </div>
+    <div>
+      <p>{description}</p>
+      <Button href={href}>{label}</Button>
+    </div>
+  </div>
+</section>

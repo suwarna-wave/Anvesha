@@ -1,0 +1,21 @@
+<button class="copy-button" type="button" hidden>
+  Copy page link
+</button>
+<span class="small copy-status" role="status"></span>
+<script>
+  const button = document.querySelector<HTMLButtonElement>('.copy-button');
+  if (button && navigator.clipboard) {
+    button.hidden = false;
+    button.addEventListener('click', async () => {
+      const status = document.querySelector('.copy-status');
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        if (status) status.textContent = 'Link copied.';
+      } catch {
+        if (status)
+          status.textContent =
+            'Could not copy. You can copy the address from your browser.';
+      }
+    });
+  }
+</script>

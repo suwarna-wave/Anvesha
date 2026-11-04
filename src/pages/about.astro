@@ -1,0 +1,96 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHeader from '../components/content/PageHeader.astro';
+import CTASection from '../components/content/CTASection.astro';
+import { principles } from '../content/site-copy';
+---
+
+<SiteLayout
+  title="About"
+  description="Learn about CLTS’s mission, principles and proposed approach to liberty, technology and society, rooted in Nepal."
+>
+  <PageHeader
+    eyebrow="About CLTS"
+    title="Thoughtful progress. Human possibility."
+    description="A Nepal-based initiative exploring the intersection of technological change, public policy and individual freedom."
+  />
+  <section class="section">
+    <div class="container content-split">
+      <div>
+        <p class="eyebrow">Our mission</p>
+        <h2>A more open, capable and accountable digital future.</h2>
+      </div>
+      <div class="prose">
+        <p>
+          The Centre for Liberty, Technology and Society (CLTS) brings research,
+          dialogue and practical learning together to help people and
+          institutions navigate emerging technologies while protecting liberty,
+          strengthening public trust and working within the rule of law.
+        </p>
+        <p>
+          Technology policy is about more than managing risk or encouraging
+          invention. It shapes people’s ability to understand their choices,
+          exercise their rights and participate in public life.
+        </p>
+        <h3>Our vision</h3>
+        <p>
+          A society where technological progress expands human possibility,
+          where people have the capability to participate, and where
+          institutions remain open, lawful and accountable.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="section tint">
+    <div class="container content-split">
+      <div>
+        <p class="eyebrow">What guides us</p>
+        <h2>Principles for asking better questions.</h2>
+      </div>
+      <div class="principles-list">
+        {principles.map((principle) => (
+          <div class="principle">
+            <h3>{principle.title}</h3>
+            <p>{principle.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container content-split">
+      <div>
+        <p class="eyebrow">Our perspective</p>
+        <h2>
+          Rooted in Nepal.
+          <br />
+          In conversation with the world.
+        </h2>
+      </div>
+      <div class="prose">
+        <p>
+          Questions about AI, privacy, public infrastructure and digital
+          inclusion cross borders. Their answers still need to reflect local
+          experience, institutions and everyday realities.
+        </p>
+        <p>
+          CLTS aims to connect perspectives from Nepal with regional and
+          international thinking, while making complex ideas useful to students,
+          educators, researchers, public institutions and technology
+          practitioners.
+        </p>
+        <h3>An initiative taking shape</h3>
+        <p>
+          Our proposed approach combines research, public dialogue, learning and
+          experimentation. The five focus areas describe the work we aim to
+          develop; they do not imply an established portfolio of programmes.
+        </p>
+        <p>
+          People, governance information and institutional documents will be
+          published when verified and approved for public sharing.
+        </p>
+      </div>
+    </div>
+  </section>
+  <CTASection />
+</SiteLayout>

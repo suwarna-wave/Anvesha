@@ -1,0 +1,41 @@
+---
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+---
+
+<a
+  href="/"
+  class:list={['wordmark', { 'wordmark--compact': compact }]}
+  aria-label={compact ? 'CLTS home' : undefined}
+>
+  <svg
+    class="brand-mark"
+    width="38"
+    height="38"
+    viewBox="0 0 40 40"
+    fill="none"
+    aria-hidden="true"
+  >
+    <path
+      d="M20 3 37 20 20 37 3 20 20 3Z"
+      stroke="currentColor"
+      stroke-width="1.5"
+    />
+    <path
+      d="M20 3v34M3 20h34M11.5 11.5h17v17h-17z"
+      stroke="currentColor"
+      stroke-width="1.2"
+    />
+    <circle cx="20" cy="20" r="4" fill="currentColor" />
+  </svg>
+  <span class="wordmark-name">
+    CLTS
+    <span class="wordmark-description">
+      Centre for Liberty,
+      <br />
+      Technology and Society
+    </span>
+  </span>
+</a>

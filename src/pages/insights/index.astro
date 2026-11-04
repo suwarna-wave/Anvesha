@@ -1,0 +1,68 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import PageHeader from '../../components/content/PageHeader.astro';
+import EmptyState from '../../components/content/EmptyState.astro';
+import InsightCard from '../../components/content/InsightCard.astro';
+import CTASection from '../../components/content/CTASection.astro';
+import Icon from '../../components/ui/Icon.astro';
+import { publicInsights } from '../../lib/content';
+import { researchQuestions } from '../../content/site-copy';
+const insights = await publicInsights();
+---
+
+<SiteLayout
+  title="Insights"
+  description="Research questions and future publications from CLTS on digital rights, responsible innovation and public capability."
+>
+  <PageHeader
+    eyebrow="Insights & ideas"
+    title="Clarity begins with a good question."
+    description="A space for evidence, informed perspectives and accessible thinking about technology and society."
+  />
+  <section class="section">
+    <div class="container">
+      {insights.length ? (
+        <div class="collection-stack">
+          {insights.map((entry) => (
+            <InsightCard entry={entry} />
+          ))}
+        </div>
+      ) : (
+        <EmptyState
+          title="Our research and ideas hub is taking shape."
+          description="There are no published insights yet. In the meantime, explore the questions guiding our work and the areas where future research could make a useful contribution."
+        />
+      )}
+    </div>
+  </section>
+  {!insights.length && (
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="section-intro">
+          <div>
+            <p class="eyebrow">Research direction · not published findings</p>
+            <h2>Questions we’re exploring.</h2>
+          </div>
+        </div>
+        <div class="questions-grid">
+          {researchQuestions.map((question) => (
+            <article class="question-item">
+              <p class="eyebrow">{question.topic}</p>
+              <h3>{question.title}</h3>
+              <p>{question.description}</p>
+              <a class="text-link" href={`/our-work#${question.pillar}`}>
+                Explore the focus area
+                <Icon size={18} />
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+  <CTASection
+    title="A question worth working on together?"
+    description="Explore research collaboration, evidence reviews and knowledge exchange with CLTS."
+    label="Explore Research Partnerships"
+  />
+</SiteLayout>

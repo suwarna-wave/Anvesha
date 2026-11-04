@@ -1,0 +1,257 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Button from '../components/ui/Button.astro';
+import Icon from '../components/ui/Icon.astro';
+import CommonsMotif from '../components/content/CommonsMotif.astro';
+import CTASection from '../components/content/CTASection.astro';
+import InsightCard from '../components/content/InsightCard.astro';
+import EventCard from '../components/content/EventCard.astro';
+import { pillars } from '../content/pillars';
+import { researchQuestions, workingProcess } from '../content/site-copy';
+import { publicInsights, publicEvents } from '../lib/content';
+const insights = (await publicInsights()).slice(0, 3);
+const events = (await publicEvents())
+  .filter(
+    ({ data }) =>
+      data.startsAt! > new Date() &&
+      data.state !== 'cancelled' &&
+      data.state !== 'completed',
+  )
+  .slice(0, 3);
+---
+
+<SiteLayout
+  title="Home"
+  description="CLTS is a Nepal-based initiative connecting public policy research, practical technology learning and open dialogue for a freer digital society."
+>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="tiny-rule"></span>Liberty. Technology. Society.
+          </p>
+          <h1>
+            A freer, more
+            <br />
+            capable{' '}
+            <em>
+              digital
+              <br class="hero-break" /> society.
+            </em>
+          </h1>
+          <p class="hero-deck">
+            We connect public policy research, practical technology learning and
+            open dialogue to help society embrace innovation while protecting
+            rights and the rule of law.
+          </p>
+          <div class="button-row">
+            <Button href="/our-work">Explore Our Work</Button>
+            <Button href="/partnerships" variant="text">
+              Partner with CLTS
+            </Button>
+          </div>
+        </div>
+        <CommonsMotif />
+      </div>
+      <div class="hero-baseline">
+        <span class="location">
+          <span class="dot"></span>Based in Nepal · Engaging across technology,
+          liberty and society
+        </span>
+        <span>Open questions. Shared futures.</span>
+      </div>
+    </div>
+  </section>
+  <section class="purpose-section section">
+    <div class="container purpose-grid">
+      <p class="eyebrow">Why we exist</p>
+      <h2>
+        Technology changes
+        <br />
+        what is possible.
+        <br />
+        <span>
+          Society decides
+          <br />
+          what is right.
+        </span>
+      </h2>
+      <div>
+        <p>
+          Every new technology brings possibilities. It also raises questions
+          about our rights, our choices and who gets to participate.
+        </p>
+        <p>
+          The Centre for Liberty, Technology and Society brings policy insight
+          and practical learning together—so people can help shape the changes
+          that shape their lives.
+        </p>
+        <a class="text-link" href="/about">
+          Meet the idea behind CLTS
+          <Icon size={18} />
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="section-intro">
+        <div>
+          <p class="eyebrow">Our focus areas</p>
+          <h2>
+            Five lenses.
+            <br />
+            One connected society.
+          </h2>
+        </div>
+        <p>
+          From the rights we hold to the skills we build, these questions guide
+          the work we aim to develop.
+        </p>
+      </div>
+      <div>
+        {pillars.map((pillar) => (
+          <a class="pillar-row" href={`/our-work#${pillar.id}`}>
+            <span class="pillar-number">{pillar.number}</span>
+            <div class="pillar-name">
+              <Icon name={pillar.icon} />
+              <h3>{pillar.title}</h3>
+            </div>
+            <p>{pillar.short}</p>
+            <Icon name="diagonal" size={20} />
+          </a>
+        ))}
+      </div>
+      <p class="small" style="margin-top:20px;margin-bottom:0">
+        These are our exploratory focus areas, rather than a record of completed
+        programmes.
+      </p>
+    </div>
+  </section>
+  <section class="process-section section">
+    <div class="container">
+      <div class="section-intro">
+        <div>
+          <p class="eyebrow">From ideas to action</p>
+          <h2>
+            Good questions deserve
+            <br />
+            practical possibilities.
+          </h2>
+        </div>
+        <p>
+          Our proposed approach connects careful thinking with shared
+          experience. Each step informs the next.
+        </p>
+      </div>
+      <div class="process-grid">
+        {workingProcess.map((step, index) => (
+          <div class="process-step">
+            <span class="step-number">0{index + 1}</span>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </div>
+        ))}
+      </div>
+      <p class="process-note">
+        An approach we are developing through research, policy dialogues,
+        workshops and civic innovation.
+      </p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="section-intro">
+        <div>
+          <p class="eyebrow">
+            {insights.length ? 'Insights & ideas' : 'Our research direction'}
+          </p>
+          <h2>
+            {insights.length
+              ? 'Ideas for a changing society.'
+              : 'Questions we’re exploring.'}
+          </h2>
+        </div>
+        <a class="text-link" href="/insights">
+          Explore Insights
+          <Icon size={18} />
+        </a>
+      </div>
+      {insights.length ? (
+        <div class="questions-grid">
+          {insights.map((entry) => (
+            <InsightCard entry={entry} />
+          ))}
+        </div>
+      ) : (
+        <div class="questions-grid">
+          {researchQuestions.map((question) => (
+            <article class="question-item">
+              <p class="eyebrow">
+                <span>{question.topic}</span>
+                <span>{question.number}</span>
+              </p>
+              <h3>{question.title}</h3>
+              <p>{question.description}</p>
+              <a class="text-link" href={`/our-work#${question.pillar}`}>
+                Explore the focus area
+                <Icon size={17} />
+              </a>
+            </article>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+  <section class="events-outlook section">
+    <div class="container">
+      {events.length ? (
+        <>
+          <div class="section-intro">
+            <div>
+              <p class="eyebrow">Gather & learn</p>
+              <h2>Join the next conversation.</h2>
+            </div>
+            <a href="/events" class="text-link">
+              View Events
+              <Icon size={18} />
+            </a>
+          </div>
+          {events.map((entry) => (
+            <EventCard entry={entry} />
+          ))}
+        </>
+      ) : (
+        <div class="outlook-grid">
+          <div>
+            <p class="eyebrow">Gather & learn</p>
+            <h2>Conversations and programmes are taking shape.</h2>
+          </div>
+          <div class="outlook-aside">
+            <p class="status-label">No publicly announced events yet</p>
+            <p>
+              We’re exploring opportunities to bring curious people together
+              through dialogue, practical learning and collaborative
+              experimentation.
+            </p>
+            <a class="text-link" href="/events">
+              Explore our events outlook
+              <Icon size={18} />
+            </a>
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+  <CTASection />
+  <section class="closing">
+    <div class="container">
+      <p>A digital future worth thinking about. Together.</p>
+      <a class="text-link" href="/get-involved">
+        Find your way to get involved
+        <Icon size={18} />
+      </a>
+    </div>
+  </section>
+</SiteLayout>

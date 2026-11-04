@@ -1,0 +1,20 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHeader from '../components/content/PageHeader.astro';
+import Button from '../components/ui/Button.astro';
+---
+
+<SiteLayout title="Page Not Found" noindex>
+  <PageHeader
+    eyebrow="404 · A different path"
+    title="This page isn’t here."
+    description="The link may have changed, or the page may no longer be available. Our main pages are a good place to continue."
+  >
+    <div class="button-row" style="margin-top:32px">
+      <Button href="/">Back to Home</Button>
+      <Button href="/our-work" variant="secondary">
+        Explore Our Work
+      </Button>
+    </div>
+  </PageHeader>
+</SiteLayout>

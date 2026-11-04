@@ -1,0 +1,53 @@
+---
+import { organization, inquiryTopics } from '../../lib/organization';
+import Button from '../ui/Button.astro';
+interface Props {
+  topic?: (typeof inquiryTopics)[number];
+}
+const { topic = 'General' } = Astro.props;
+const href = organization.email
+  ? `mailto:${organization.email}?subject=${encodeURIComponent(`CLTS ${topic.toLowerCase()} inquiry`)}`
+  : undefined;
+---
+
+<section class="inquiry-panel" id="inquiry" aria-labelledby="inquiry-title">
+  <p class="eyebrow">
+    {topic === 'Partnerships'
+      ? 'Partnership & grant conversations'
+      : 'Get in touch'}
+  </p>
+  <h2 id="inquiry-title">
+    {topic === 'Partnerships'
+      ? 'Start a partnership conversation.'
+      : 'A good conversation starts with a question.'}
+  </h2>
+  {href ? (
+    <>
+      <p>
+        Tell us a little about your interest, your organisation if relevant, and
+        what you would like to explore together.
+      </p>
+      <Button href={href}>Email CLTS</Button>
+      <p class="small">
+        <a href={`mailto:${organization.email}`}>{organization.email}</a> · This
+        link opens your email application. No message is sent through this
+        website.
+      </p>
+    </>
+  ) : (
+    <div class="inquiry-unavailable">
+      <span class="status-label">Contact channel forthcoming</span>
+      <p>
+        <strong>Online inquiries are not available yet.</strong>
+      </p>
+      <p>
+        Our public contact channel is being prepared. Please check back for
+        details.
+      </p>
+    </div>
+  )}
+  <p class="small">
+    Read our <a href="/privacy">privacy notice</a> for information about contact
+    and data use.
+  </p>
+</section>

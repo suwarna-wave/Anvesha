@@ -1,0 +1,30 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHeader from '../components/content/PageHeader.astro';
+import InquiryPanel from '../components/forms/InquiryPanel.astro';
+import { inquiryTopics } from '../lib/organization';
+---
+
+<SiteLayout
+  title="Contact"
+  description="Contact information and inquiry availability for the Centre for Liberty, Technology and Society, based in Nepal."
+>
+  <PageHeader
+    eyebrow="Contact"
+    title="Let’s find a useful question to share."
+    description="For research, media, events, institutional partnerships and general inquiries."
+  />
+  <section class="section">
+    <div class="container content-split">
+      <div>
+        <p class="eyebrow">Based in Nepal</p>
+        <h2>Open to thoughtful connections.</h2>
+        <p class="small">
+          Inquiry topics:{' '}
+          {inquiryTopics.map((topic) => topic.toLowerCase()).join(', ')}.
+        </p>
+      </div>
+      <InquiryPanel />
+    </div>
+  </section>
+</SiteLayout>

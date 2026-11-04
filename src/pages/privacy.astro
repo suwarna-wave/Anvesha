@@ -1,0 +1,80 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHeader from '../components/content/PageHeader.astro';
+import { organization } from '../lib/organization';
+---
+
+<SiteLayout
+  title="Privacy"
+  description="How this version of the CLTS website handles data, contact links and external services."
+>
+  <PageHeader
+    eyebrow="Privacy"
+    title="A clear view of your data."
+    description="This notice describes the current website. It must be reviewed before public launch and whenever new services are introduced."
+  />
+  <div class="reading-layout">
+    <div class="container prose">
+      <h2>Browsing this website</h2>
+      <p>
+        This website serves informational pages and locally hosted fonts. It
+        does not include analytics, advertising pixels, newsletter signup,
+        account creation or non-essential cookies.
+      </p>
+      <h2>Contact and inquiries</h2>
+      {organization.email ? (
+        <p>
+          Contact links open your own email application. Messages go through
+          your email provider and the CLTS mailbox provider. The website itself
+          does not collect or store the contents of those messages. Please avoid
+          sending sensitive personal information.
+        </p>
+      ) : (
+        <p>
+          Online inquiries are not enabled. There are no submission forms on
+          this version of the website, and it does not collect names, email
+          addresses or messages.
+        </p>
+      )}
+      <h2>Hosting and technical records</h2>
+      <p>
+        The hosting service used for a public deployment may process IP
+        addresses, request times, requested pages and browser information in
+        technical logs. The chosen provider, processing locations and retention
+        period must be confirmed before launch.
+      </p>
+      <h2>External links</h2>
+      <p>
+        If you follow a link to another website, its own privacy practices
+        apply. Approved external registration services, if added in future, will
+        be identified before you leave this site.
+      </p>
+      <h2>Future changes</h2>
+      <p>
+        Any future form, newsletter or analytics service will require an updated
+        notice describing the data collected, its purpose, recipients,
+        retention, relevant international processing and a working contact
+        mechanism.
+      </p>
+      <h2>Privacy questions</h2>
+      {organization.email ? (
+        <p>
+          Email{' '}
+          <a href={`mailto:${organization.email}`}>{organization.email}</a> with
+          privacy questions.
+        </p>
+      ) : (
+        <p>
+          A public privacy contact channel is being prepared. It must be
+          available before the site is launched publicly.
+        </p>
+      )}
+      <p class="notice">
+        Launch review outstanding: confirm the hosting arrangements, operational
+        data practices and applicable privacy requirements with CLTS leadership
+        and qualified advisers. This notice does not claim a completed legal
+        review.
+      </p>
+    </div>
+  </div>
+</SiteLayout>
