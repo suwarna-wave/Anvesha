@@ -69,3 +69,11 @@ Added `.github/workflows/deploy-pages.yml` for checked builds and deployment of 
 Validation: 9 content/routing tests passed; isolated fixtures built successfully at both `/` and `/anvesha/`, including Markdown links/images, publication templates, sitemap, RSS, canonical paths and draft exclusion. The `/anvesha/` production build passed validation for 11 HTML pages and 332 local references. All 11 browser checks passed at that project path, including five viewport widths, keyboard/no-JavaScript navigation, 404 behaviour, reduced motion and mobile/desktop accessibility scans. Type checking, lint, formatting and a lockfile/install dry run passed.
 
 GitHub Pages does not apply custom `_headers` files. The alternate-host header example now lives outside public output at `deploy/headers.example`. A successful remote deployment and repository rename must be confirmed separately; local validation does not establish either.
+
+## Repository synchronisation
+
+Verified that GitHub now identifies the repository as `suwarna-wave/Anvesha`; the local remote uses that exact name. The expected Pages path is `/Anvesha/`, and deployment examples now match its capitalisation. Local folder naming remains independent of the public URL.
+
+The inspected deployment run passed dependency installation and source checks, then failed at **Read GitHub Pages URL**. The repository API reported `has_pages: false`, and the expected public URL returned HTTP 404. Pages must be enabled with **GitHub Actions** as its source before deployment can complete. A source push alone does not enable Pages.
+
+The exact `/Anvesha/` production build passed: 11 HTML pages and 332 local references validated, all 9 unit tests passed, and the edited documentation passed formatting and whitespace checks. Browser and Lighthouse checks were not repeated for these documentation/remote changes.

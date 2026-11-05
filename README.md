@@ -1,6 +1,6 @@
 # Anvesha website
 
-A lightweight editorial website for the **Anvesha**, a Nepal-based initiative. Built with Astro 7.4.5, strict TypeScript, Tailwind CSS 4 and Markdown content collections. Pages are pre-rendered HTML; only menu enhancements and publication link copying need small browser scripts.
+A lightweight editorial website for **Anvesha**, a Nepal-based initiative. Built with Astro 7.4.5, strict TypeScript, Tailwind CSS 4 and Markdown content collections. Pages are pre-rendered HTML; only menu enhancements and publication link copying need small browser scripts.
 
 ## Run locally
 
@@ -69,7 +69,7 @@ Copy `.env.example` to `.env`. Never commit actual secrets.
 | Variable               | Default | Effect                                                                                                                                                       |
 | ---------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `SITE_URL`             | empty   | Verified HTTPS origin, such as your eventual domain; enables absolute canonical and social URLs. Use an origin only; put the repository path in `BASE_PATH`. |
-| `BASE_PATH`            | `/`     | Project path, e.g. `/anvesha/`; Pages workflow reads it from GitHub automatically.                                                                           |
+| `BASE_PATH`            | `/`     | Project path, e.g. `/Anvesha/`; Pages workflow reads it from GitHub automatically.                                                                           |
 | `PUBLIC_INDEXABLE`     | `false` | Set to `true` only after launch approval. Requires `SITE_URL`; enables indexing, sitemap entries and public structured data.                                 |
 | `PUBLIC_CONTACT_EMAIL` | empty   | Verified public inbox. Enables clearly labelled `mailto:` links, not a submission form.                                                                      |
 
@@ -83,17 +83,19 @@ The existing source layout is already suitable for Pages. Source stays in `src/`
 
 ### One-time repository setup
 
-1. Rename the repository to **`anvesha`** in GitHub **Settings → General → Repository name**. This requires repository administration access. Renaming the local folder alone does not rename GitHub or its Pages URL.
+The repository is [suwarna-wave/Anvesha](https://github.com/suwarna-wave/Anvesha). Its capitalisation matters for the Pages project path.
+
+1. Keep the repository name **`Anvesha`** and use **`/Anvesha/`** for project-path previews. Renaming the local folder does not change GitHub or its Pages URL.
 2. In **Settings → Pages → Build and deployment**, select **GitHub Actions** as the source. Keep **Enforce HTTPS** enabled when available. If the repository is private, confirm that your GitHub plan supports Pages; do not change source-code visibility just to deploy the site without an explicit decision.
 3. Update your local remote after the repository is renamed:
 
    ```sh
-   git remote set-url origin git@github.com:suwarna-wave/anvesha.git
+   git remote set-url origin git@github.com:suwarna-wave/Anvesha.git
    ```
 
 4. Push `main`, or open **Actions → Deploy Anvesha to GitHub Pages → Run workflow**. Wait for both build and deploy to succeed. The deployment job reports the actual site URL.
 
-Expected project URL after renaming: **https://suwarna-wave.github.io/anvesha/**. The workflow reads the origin and project path from GitHub Pages metadata, so it also supports the current repository name or a later approved custom domain without hard-coded path edits. If a repository is renamed after a deployment, run the workflow again. Pages project URLs do not inherit repository URL redirects.
+Expected project URL once Pages is enabled: **https://suwarna-wave.github.io/Anvesha/**. The workflow reads the origin and project path from GitHub Pages metadata, so it also supports a later repository rename or approved custom domain without hard-coded path edits. If a repository is renamed after a deployment, run the workflow again. Pages project URLs do not inherit repository URL redirects.
 
 ### Public build settings
 
@@ -107,13 +109,13 @@ The workflow supplies `SITE_URL` and `BASE_PATH` from the Pages settings. No del
 ### Test the project path locally
 
 ```sh
-SITE_URL=https://suwarna-wave.github.io BASE_PATH=/anvesha/ npm run build
-BASE_PATH=/anvesha/ npm run test:site
-BASE_PATH=/anvesha/ npm run test:browser
-BASE_PATH=/anvesha/ npm run preview
+SITE_URL=https://suwarna-wave.github.io BASE_PATH=/Anvesha/ npm run build
+BASE_PATH=/Anvesha/ npm run test:site
+BASE_PATH=/Anvesha/ npm run test:browser
+BASE_PATH=/Anvesha/ npm run preview
 ```
 
-Open `http://127.0.0.1:4321/anvesha/`. Shell variables apply to one command. For ordinary local development, leave `BASE_PATH=/` in `.env`. To return the production preview to a root build, run `npm run build` again without the project-path override.
+Open `http://127.0.0.1:4321/Anvesha/`. Shell variables apply to one command. For ordinary local development, leave `BASE_PATH=/` in `.env`. To return the production preview to a root build, run `npm run build` again without the project-path override.
 
 Internal links, assets, downloads, canonical URLs, social previews, sitemap and RSS respect `BASE_PATH`. Use `sitePath()` from `src/lib/urls.ts` when adding authored links in Astro components; external URLs, email links and same-page fragments are preserved. Standard Markdown links/images are prefixed by the configured Markdown processor. Prefer standard Markdown links to raw HTML in editorial content.
 
@@ -123,7 +125,7 @@ Static sources and approved documents live in Git. Roll back by reverting the so
 
 ### Local folder name
 
-For a fresh checkout, the renamed repository clones into an `anvesha` folder. Existing checkouts can also be renamed to `anvesha` after stopping their development server and closing the old workspace; reopen the renamed folder in your editor. The folder’s name does not affect the site’s public identity or deployment.
+For a fresh checkout, the repository clones into an `Anvesha` folder. Use `git clone git@github.com:suwarna-wave/Anvesha.git anvesha` if you prefer a lowercase local folder. Existing checkouts can also be renamed to `anvesha` after stopping their development server and closing the old workspace; reopen the renamed folder in your editor. The folder’s name does not affect the site’s public identity or deployment.
 
 ## Future form delivery
 

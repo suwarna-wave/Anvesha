@@ -5,7 +5,8 @@ The local site works without external services. Public launch remains dependent 
 - [ ] Founder confirms working brand and approves the proposed wordmark/motif.
 - [ ] Verify legal name/status before publishing any legal identity or registration claim.
 - [ ] Supply a working public email, configure `PUBLIC_CONTACT_EMAIL`, and test the email link with the intended inbox owner.
-- [ ] Select hosting, verify domain ownership and HTTPS, and set `SITE_URL`.
+- [x] Select GitHub Pages hosting and confirm the repository name: `suwarna-wave/Anvesha`.
+- [ ] Enable **Settings → Pages → Source → GitHub Actions**, deploy, and verify `https://suwarna-wave.github.io/Anvesha/`. The workflow sets `SITE_URL` and `BASE_PATH` from GitHub Pages metadata. Verify ownership and HTTPS separately if adding a custom domain.
 - [ ] Confirm host logging, processor locations and retention; revise privacy copy and obtain legal review.
 - [ ] Confirm a usable privacy and accessibility reporting channel.
 - [ ] Review all draft positioning and proposed activities against actual organisational plans.
